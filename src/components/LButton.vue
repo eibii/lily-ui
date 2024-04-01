@@ -79,7 +79,7 @@ const props = withDefaults(
     :disabled="props.disabled || props.loading"
     v-bind="$attrs"
   >
-    <div v-if="props.loading" class="flex gap-2">
+    <div v-if="props.loading" data-loading class="flex gap-2">
       <span class="flex-none self-center loading loading-spinner" />
       <span v-if="props.loadingText" class="flex-1 self-center">{{ props.loadingText}}</span>
     </div>
