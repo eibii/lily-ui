@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { LDropdown } from './components'
+import { LDropdownCard } from './components'
 const options = [
   { label: 'Option 1', value: '1' },
   { label: 'Option 2', disabled: true, value: '2' },
@@ -16,7 +16,10 @@ const onClickOption = (option: any) => {
       <img src="./assets/logo.svg" alt="logo" class="mx-auto max-h-20" />
     </div>
     <div class="flex justify-center">
-      <LDropdown label="Hello LilyUI" :options="options" @onClickOption="onClickOption" />
+      <LDropdownCard label="Hello LilyUI">
+        <template #title>Teste</template>
+        <p>Teste conteúdo</p>
+      </LDropdownCard>
     </div>
   </div>
 </template>
