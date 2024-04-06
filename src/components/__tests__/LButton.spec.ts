@@ -125,4 +125,13 @@ describe('Button', () => {
     expect(wrapper.find('[data-loading]').get('span').classes()).includes('loading-spinner')
     expect(wrapper.text()).toContain('wait...')
   })
+  it('render default slot', () => {
+    const wrapper = mount(Button, {
+      slots: {
+        default: '<div>Slot default</div>'
+      }
+    })
+
+    expect(wrapper.text()).toContain('Slot default')
+  })
 })

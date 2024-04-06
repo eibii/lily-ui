@@ -10,7 +10,7 @@ type DropdownOption = {
 }
 
 const emit = defineEmits(['onClickOption'])
-const props = withDefaults(
+withDefaults(
   defineProps<{
     width?: string
     label: string
@@ -54,19 +54,19 @@ const onClick = (option: DropdownOption) => {
   <div
     :class="[
       'dropdown',
-      props.position,
-      props.align,
+      $props.position,
+      $props.align,
       {
-        'dropdown-hover': props.hover,
-        'dropdown-open': props.open,
-        'pointer-events-none': props.disabled
+        'dropdown-hover': $props.hover,
+        'dropdown-open': $props.open,
+        'pointer-events-none': $props.disabled
       }
     ]"
   >
     <div tabindex="0" role="button" class="btn m-1 flex gap-2">
-      <i v-if="props.icon" :class="['flex-none self-center', props.icon]" />
-      <span class="flex-1 self-center">{{ props.label }}</span>
-      <i v-if="props.iconRight" :class="['flex-none self-center', props.iconRight]" />
+      <i v-if="$props.icon" :class="['flex-none self-center', $props.icon]" />
+      <span class="flex-1 self-center">{{ $props.label }}</span>
+      <i v-if="$props.iconRight" :class="['flex-none self-center', $props.iconRight]" />
       <div class="flex-none self-center">
         <svg
           class="rotate-180"
@@ -88,15 +88,15 @@ const onClick = (option: DropdownOption) => {
       </div>
     </div>
     <ul
-      v-if="!props.disabled"
+      v-if="!$props.disabled"
       ref="dropdownList"
       tabindex="0"
-      :class="['p-2 shadow menu dropdown-content z-[1] bg-base-100 rounded-box', props.width]"
+      :class="['p-2 shadow menu dropdown-content z-[1] bg-base-100 rounded-box', $props.width]"
     >
-      <li v-if="props.loading" class="p-1">
+      <li v-if="$props.loading" class="p-1">
         <i class="self-center loading loading-spinner" />
       </li>
-      <template v-else v-for="(option, i) in props.options" :key="i">
+      <template v-else v-for="(option, i) in $props.options" :key="i">
         <li>
           <a
             :class="['flex gap-2', { 'pointer-events-none': option.disabled }]"

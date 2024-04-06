@@ -1,5 +1,5 @@
 <script setup lang="ts">
-const props = withDefaults(
+withDefaults(
   defineProps<{
     width?: string
     label: string
@@ -35,19 +35,19 @@ const props = withDefaults(
   <div
     :class="[
       'dropdown',
-      props.position,
-      props.align,
+      $props.position,
+      $props.align,
       {
-        'dropdown-hover': props.hover,
-        'dropdown-open': props.open,
-        'pointer-events-none': props.disabled
+        'dropdown-hover': $props.hover,
+        'dropdown-open': $props.open,
+        'pointer-events-none': $props.disabled
       }
     ]"
   >
     <div tabindex="0" role="button" class="btn m-1 flex gap-2">
-      <i v-if="props.icon" :class="['flex-none self-center', props.icon]" />
-      <span class="flex-1 self-center">{{ props.label }}</span>
-      <i v-if="props.iconRight" :class="['flex-none self-center', props.iconRight]" />
+      <i v-if="$props.icon" :class="['flex-none self-center', $props.icon]" />
+      <span class="flex-1 self-center">{{ $props.label }}</span>
+      <i v-if="$props.iconRight" :class="['flex-none self-center', $props.iconRight]" />
       <div class="flex-none self-center">
         <svg
           class="rotate-180"
@@ -69,16 +69,16 @@ const props = withDefaults(
       </div>
     </div>
     <div
-      v-if="!props.disabled"
+      v-if="!$props.disabled"
       tabindex="0"
       :class="[
         'dropdown-content z-[1] card card-compact p-2 shadow',
-        props.width,
-        props.cardBg,
-        props.cardColor
+        $props.width,
+        $props.cardBg,
+        $props.cardColor
       ]"
     >
-      <div :class="['card-body', props.cardClass]">
+      <div :class="['card-body', $props.cardClass]">
         <h3 v-if="$slots.title" class="card-title">
           <slot name="title" />
         </h3>

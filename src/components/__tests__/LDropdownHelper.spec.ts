@@ -1,7 +1,7 @@
 import { describe, it, expect } from 'vitest'
 
 import { mount } from '@vue/test-utils'
-import Dropdown from '../LDropdownCard.vue'
+import Dropdown from '../LDropdownHelper.vue'
 
 describe('DropdownCard', () => {
   it('renders a dropdown with default props', () => {
@@ -9,32 +9,30 @@ describe('DropdownCard', () => {
 
     expect(wrapper.exists()).toBe(true)
     expect(wrapper.props()).toEqual({
-      width: 'w-52',
-      label: '',
-      icon: '',
-      iconRight: '',
-      disabled: false,
+      width: 'w-64',
+      size: 'xs',
       open: false,
       hover: false,
-      position: 'default',
+      position: 'dropdown-end',
+      shape: 'circle',
       align: 'default',
+      iconColor: 'text-info',
       cardClass: '',
-      cardBg: 'bg-primary',
-      cardColor: 'text-primary-content'
+      cardBg: 'bg-base-100',
+      cardColor: ''
     })
   })
   it('renders a dropdown with custom props', () => {
     const wrapper = mount(Dropdown, {
       props: {
         width: 'w-48',
-        label: 'Dropdown',
-        icon: 'fa fa-check',
-        iconRight: '',
-        disabled: true,
+        size: 'lg',
         open: true,
         hover: false,
         position: 'dropdown-top',
+        shape: 'square',
         align: 'dropdown-right',
+        iconColor: 'text-info',
         cardClass: 'border-2 border-gray-200',
         cardBg: 'bg-gray-200',
         cardColor: 'text-gray-800'
@@ -44,22 +42,17 @@ describe('DropdownCard', () => {
     expect(wrapper.find('.dropdown').exists()).toBe(true)
     expect(wrapper.props()).toEqual({
       width: 'w-48',
-      label: 'Dropdown',
-      icon: 'fa fa-check',
-      iconRight: '',
-      disabled: true,
+      size: 'lg',
       open: true,
       hover: false,
       position: 'dropdown-top',
+      shape: 'square',
       align: 'dropdown-right',
+      iconColor: 'text-info',
       cardClass: 'border-2 border-gray-200',
       cardBg: 'bg-gray-200',
       cardColor: 'text-gray-800'
     })
-  })
-  it('renders properly', () => {
-    const wrapper = mount(Dropdown, { props: { label: 'Hello Vitest' } })
-    expect(wrapper.text()).toContain('Hello Vitest')
   })
   it('renders title and default slots', () => {
     const wrapper = mount(Dropdown, {
@@ -70,22 +63,5 @@ describe('DropdownCard', () => {
     })
     expect(wrapper.text()).toContain('Slot title')
     expect(wrapper.text()).toContain('Slot default')
-  })
-  it('is disabled', async () => {
-    const wrapper = mount(Dropdown, {
-      props: {
-        disabled: true,
-        width: 'w-48',
-        label: 'Dropdown',
-        options: [
-          { label: 'Option 1', value: '1' },
-          { label: 'Option 2', value: '2' },
-          { label: 'Option 3', value: '3' }
-        ]
-      }
-    })
-    await wrapper.trigger('click')
-    const elUl = wrapper.find('.card-body')
-    expect(elUl.exists()).toBe(false)
   })
 })

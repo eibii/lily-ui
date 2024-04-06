@@ -1,13 +1,10 @@
 <script setup lang="ts">
-import { LDropdownCard } from './components'
-const options = [
-  { label: 'Option 1', value: '1' },
-  { label: 'Option 2', disabled: true, value: '2' },
-  { label: 'Option 3', value: '3' }
-]
-const onClickOption = (option: any) => {
-  console.log(option)
-}
+import { LThemeCtr } from './components'
+import { ref } from 'vue'
+
+import 'bootstrap-icons/font/bootstrap-icons.css'
+
+const value = ref(false)
 </script>
 
 <template>
@@ -16,10 +13,14 @@ const onClickOption = (option: any) => {
       <img src="./assets/logo.svg" alt="logo" class="mx-auto max-h-20" />
     </div>
     <div class="flex justify-center">
-      <LDropdownCard label="Hello LilyUI">
-        <template #title>Teste</template>
-        <p>Teste conteúdo</p>
-      </LDropdownCard>
+      <LThemeCtr
+        v-model="value"
+        off-icon="bi bi-brightness-high"
+        on-icon="bi bi-brightness-high-fill"
+      />
+    </div>
+    <div class="flex justify-center">
+      <pre>{{ value }}</pre>
     </div>
   </div>
 </template>

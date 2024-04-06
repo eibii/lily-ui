@@ -1,3 +1,7 @@
 export { default as LButton } from './LButton.vue'
 export { default as LDropdown } from './LDropdown.vue'
 export { default as LDropdownCard } from './LDropdownCard.vue'
+export { default as LDropdownHelper } from './LDropdownHelper.vue'
+export { default as LModal } from './LModal.vue'
+export { default as LSwap } from './LSwap.vue'
+export { default as LThemeCtr } from './LThemeCtr.vue'

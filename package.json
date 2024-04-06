@@ -44,6 +44,7 @@
     "commit": "cz"
   },
   "dependencies": {
+    "bootstrap-icons": "^1.11.3",
     "vue": "^3.4.21"
   },
   "devDependencies": {
