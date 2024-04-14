@@ -56,6 +56,7 @@ withDefaults(
         'btn-active': $props.active,
         'btn-xs': $props.size === 'xs',
         'btn-sm': $props.size === 'sm',
+        'btn-md': $props.size === 'default',
         'btn-lg': $props.size === 'lg',
         'btn-outline': $props.outline,
         'no-animation': $props.noAnimation,

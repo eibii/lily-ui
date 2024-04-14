@@ -1,6 +1,7 @@
 import { describe, it, expect } from 'vitest'
 
 import { mount } from '@vue/test-utils'
+
 import Swap from '../LSwap.vue'
 
 describe('Swap', () => {

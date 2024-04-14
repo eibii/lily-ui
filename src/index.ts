@@ -10,7 +10,13 @@ import {
   LDropdownHelper,
   LModal,
   LSwap,
-  LThemeCtr
+  LThemeMode,
+  LAccordion,
+  LAccordionGroup,
+  LAvatar,
+  LAvatarGroup,
+  LBadge,
+  LCard
 } from './components'
 // standard export with automatic installation
 export default {
@@ -21,8 +27,28 @@ export default {
     app.component('LDropdownHelper', LDropdownHelper)
     app.component('LModal', LModal)
     app.component('LSwap', LSwap)
-    app.component('LThemeCtr', LThemeCtr)
+    app.component('LThemeMode', LThemeMode)
+    app.component('LAccordion', LAccordion)
+    app.component('LAccordionGroup', LAccordionGroup)
+    app.component('LAvatar', LAvatar)
+    app.component('LAvatarGroup', LAvatarGroup)
+    app.component('LBadge', LBadge)
+    app.component('LCard', LCard)
   }
 }
 // individual exports
-export { LButton, LDropdown, LDropdownCard, LDropdownHelper, LModal, LSwap, LThemeCtr }
+export {
+  LButton,
+  LDropdown,
+  LDropdownCard,
+  LDropdownHelper,
+  LModal,
+  LSwap,
+  LThemeMode,
+  LAccordion,
+  LAccordionGroup,
+  LAvatar,
+  LAvatarGroup,
+  LBadge,
+  LCard
+}

@@ -1,9 +1,10 @@
 import { describe, it, expect } from 'vitest'
 
 import { mount } from '@vue/test-utils'
+
 import Modal from '../LModal.vue'
 
-describe('DropdownCard', () => {
+describe('Modal', () => {
   it('renders a modal with default props', () => {
     const wrapper = mount(Modal)
 

@@ -1,10 +1,11 @@
 import { describe, it, expect } from 'vitest'
 
 import { mount } from '@vue/test-utils'
+
 import Dropdown from '../LDropdownCard.vue'
 
 describe('DropdownCard', () => {
-  it('renders a dropdown with default props', () => {
+  it('renders a dropdown-card with default props', () => {
     const wrapper = mount(Dropdown)
 
     expect(wrapper.exists()).toBe(true)
@@ -23,7 +24,7 @@ describe('DropdownCard', () => {
       cardColor: 'text-primary-content'
     })
   })
-  it('renders a dropdown with custom props', () => {
+  it('renders a dropdown-card with custom props', () => {
     const wrapper = mount(Dropdown, {
       props: {
         width: 'w-48',

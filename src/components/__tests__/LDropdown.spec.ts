@@ -1,6 +1,7 @@
 import { describe, it, expect } from 'vitest'
 
 import { mount } from '@vue/test-utils'
+
 import Dropdown from '../LDropdown.vue'
 
 describe('Dropdown', () => {
