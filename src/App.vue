@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { LThemeMode, LCard } from './components'
+import { LThemeMode, LCountdownTime } from './components'
 import { ref } from 'vue'
 
 import 'bootstrap-icons/font/bootstrap-icons.css'
@@ -16,17 +16,14 @@ const value = ref(false)
       </div>
     </div>
     <div class="p-4 flex justify-center">
-      <LCard
-        class="w-96"
-        image="https://images.unsplash.com/photo-1511447333015-45b65e60f6d5?q=10"
-        image-alt="neon"
-      >
-        <template #title> New movie is released! </template>
-        <p>Click the button to watch on Jetflix app.</p>
-        <template #actions>
-          <button class="btn btn-primary">Watch</button>
-        </template>
-      </LCard>
+      <LCountdownTime
+        layout="boxes"
+        :seconds="10"
+        text-days="Dias"
+        text-hours="Horas"
+        text-minutes="Min"
+        text-seconds="Seg"
+      />
     </div>
   </div>
 </template>

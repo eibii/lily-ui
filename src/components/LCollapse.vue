@@ -3,14 +3,14 @@ defineEmits(['onExpand'])
 withDefaults(
   defineProps<{
     bgClass?: string
-    name?: string
+    focus?: boolean
     active?: boolean
     unstyledTitle?: boolean
     collapseIcon?: 'arrow' | 'plus' | 'default'
   }>(),
   {
     bgClass: 'bg-base-200',
-    name: 'my-accordion-1',
+    focus: false,
     active: false,
     unstyledTitle: false,
     collapseIcon: 'arrow'
@@ -22,22 +22,29 @@ withDefaults(
   <div
     tabindex="0"
     :class="[
-      'accordion-item collapse',
+      'collapse',
       $props.bgClass,
       {
         'collapse-arrow': $props.collapseIcon === 'arrow',
         'collapse-plus': $props.collapseIcon === 'plus'
       }
     ]"
-    v-bind="{ ...$attrs }"
   >
     <input
-      type="radio"
-      :name="$props.name"
+      v-if="!$props.focus"
+      type="checkbox"
       v-bind="$props.active ? { checked: true } : {}"
       @change="$emit('onExpand', $event)"
     />
-    <div :class="['collapse-title ', { 'text-xl font-medium': !$props.unstyledTitle }]">
+    <div
+      v-if="$slots.title"
+      :class="[
+        'collapse-title',
+        {
+          'text-xl font-medium': !$props.unstyledTitle
+        }
+      ]"
+    >
       <slot name="title" />
     </div>
     <div class="collapse-content">

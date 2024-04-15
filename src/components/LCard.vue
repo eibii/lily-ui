@@ -50,7 +50,12 @@ import { LButton } from '.'
     </figure>
     <div :class="['card-body', { 'items-center text-center': $props.center }]">
       <div v-if="$props.closable" class="card-actions justify-end">
-        <LButton class="w-9" size="sm" @click="$emit('onClose')" @keypress.enter="$emit('onClose')">
+        <LButton
+          class="w-9"
+          size="sm"
+          @click="$emit('onClose', $event)"
+          @keypress.enter="$emit('onClose', $event)"
+        >
           <svg
             class="h-6 w-6"
             viewBox="0 0 1024 1024"

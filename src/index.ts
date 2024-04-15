@@ -16,7 +16,12 @@ import {
   LAvatar,
   LAvatarGroup,
   LBadge,
-  LCard
+  LCard,
+  LCarousel,
+  LChat,
+  LCollapse,
+  LCountdown,
+  LCountdownTime
 } from './components'
 // standard export with automatic installation
 export default {
@@ -34,6 +39,11 @@ export default {
     app.component('LAvatarGroup', LAvatarGroup)
     app.component('LBadge', LBadge)
     app.component('LCard', LCard)
+    app.component('LCarousel', LCarousel)
+    app.component('LChat', LChat)
+    app.component('LCollapse', LCollapse)
+    app.component('LCountdown', LCountdown)
+    app.component('LCountdownTime', LCountdownTime)
   }
 }
 // individual exports
@@ -50,5 +60,10 @@ export {
   LAvatar,
   LAvatarGroup,
   LBadge,
-  LCard
+  LCard,
+  LCarousel,
+  LChat,
+  LCollapse,
+  LCountdown,
+  LCountdownTime
 }
