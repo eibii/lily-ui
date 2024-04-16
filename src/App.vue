@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { LThemeMode, LCountdownTime } from './components'
+import { LThemeMode, LDiff } from './components'
 import { ref } from 'vue'
 
 import 'bootstrap-icons/font/bootstrap-icons.css'
@@ -15,15 +15,19 @@ const value = ref(false)
         <LThemeMode v-model="value" default-mode="light" width-class="w-8" height-class="h-8" />
       </div>
     </div>
-    <div class="p-4 flex justify-center">
-      <LCountdownTime
-        layout="boxes"
-        :seconds="10"
-        text-days="Dias"
-        text-hours="Horas"
-        text-minutes="Min"
-        text-seconds="Seg"
-      />
+    <div class="p-40 flex justify-center">
+      <LDiff aspect="16/9">
+        <template #item-1>
+          <div
+            class="bg-primary text-primary-content text-9xl font-black grid place-content-center"
+          >
+            DAISY
+          </div>
+        </template>
+        <template #item-2>
+          <div class="bg-base-200 text-9xl font-black grid place-content-center">DAISY</div>
+        </template>
+      </LDiff>
     </div>
   </div>
 </template>

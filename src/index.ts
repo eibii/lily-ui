@@ -21,7 +21,8 @@ import {
   LChat,
   LCollapse,
   LCountdown,
-  LCountdownTime
+  LCountdownTime,
+  LDiff
 } from './components'
 // standard export with automatic installation
 export default {
@@ -44,6 +45,7 @@ export default {
     app.component('LCollapse', LCollapse)
     app.component('LCountdown', LCountdown)
     app.component('LCountdownTime', LCountdownTime)
+    app.component('LDiff', LDiff)
   }
 }
 // individual exports
@@ -65,5 +67,6 @@ export {
   LChat,
   LCollapse,
   LCountdown,
-  LCountdownTime
+  LCountdownTime,
+  LDiff
 }

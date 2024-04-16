@@ -1,29 +1,37 @@
 <script setup lang="ts">
 import { computed } from 'vue'
+import * as _ from 'lodash-es'
 
 const props = withDefaults(
   defineProps<{
     value: number
     numberDigits?: number
     widthClass?: string
+    animation?: 'default' | 'jump' | 'flip' | 'fade'
   }>(),
   {
     numberDigits: 1,
-    widthClass: 'w-6'
+    widthClass: 'w-6',
+    animation: 'default'
   }
 )
 const maskNumber = computed(() => {
-  let mask = '0'
-
-  for (let i = 2; i < props.numberDigits; i++) {
-    mask += '0'
-  }
-
-  const strNumber =
-    props.numberDigits > 1 && props.value <= 9 ? `${mask}${props.value}` : props.value.toString()
-
-  return strNumber.split('')
+  return _.padStart(`${props.value}`, props.numberDigits, '0').split('')
 })
+const animatesIn = {
+  default: 'animate-fade-down',
+  jump: 'animate-jump animate-ease-in',
+  flip: 'animate-flip-down animate-ease-in',
+  fade: 'animate-fade animate-ease-in'
+}
+const animatesOut = {
+  default: 'animate-fade-up animate-reverse',
+  jump: 'animate-jump animate-reverse animate-ease-out',
+  flip: 'animate-flip-up animate-reverse animate-ease-out',
+  fade: 'animate-fade animate-reverse animate-ease-out'
+}
+const animateIn = computed(() => animatesIn[props.animation])
+const animateOut = computed(() => animatesOut[props.animation])
 </script>
 
 <template>
@@ -31,8 +39,8 @@ const maskNumber = computed(() => {
     <template v-for="i in numberDigits" :key="i">
       <Transition
         mode="out-in"
-        enter-to-class="animate-duration-150 animate-fade-down"
-        leave-to-class="animate-duration-150 animate-fade-up animate-reverse"
+        :enter-to-class="`animate-duration-150 ${animateIn}`"
+        :leave-to-class="`animate-duration-150 ${animateOut}`"
       >
         <div :key="maskNumber[i - 1]">
           {{ maskNumber[i - 1] }}
