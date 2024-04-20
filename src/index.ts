@@ -22,7 +22,10 @@ import {
   LCollapse,
   LCountdown,
   LCountdownTime,
-  LDiff
+  LDiff,
+  LKbd,
+  LStatGroup,
+  LStat
 } from './components'
 // standard export with automatic installation
 export default {
@@ -46,6 +49,9 @@ export default {
     app.component('LCountdown', LCountdown)
     app.component('LCountdownTime', LCountdownTime)
     app.component('LDiff', LDiff)
+    app.component('LKbd', LKbd)
+    app.component('LStatGroup', LStatGroup)
+    app.component('LStat', LStat)
   }
 }
 // individual exports
@@ -68,5 +74,8 @@ export {
   LCollapse,
   LCountdown,
   LCountdownTime,
-  LDiff
+  LDiff,
+  LKbd,
+  LStatGroup,
+  LStat
 }

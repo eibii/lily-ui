@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { LThemeMode, LDiff } from './components'
+import { LThemeMode, LStatGroup, LStat, LAvatar } from './components'
 import { ref } from 'vue'
 
 import 'bootstrap-icons/font/bootstrap-icons.css'
@@ -16,18 +16,32 @@ const value = ref(false)
       </div>
     </div>
     <div class="p-40 flex justify-center">
-      <LDiff aspect="16/9">
-        <template #item-1>
-          <div
-            class="bg-primary text-primary-content text-9xl font-black grid place-content-center"
-          >
-            DAISY
-          </div>
-        </template>
-        <template #item-2>
-          <div class="bg-base-200 text-9xl font-black grid place-content-center">DAISY</div>
-        </template>
-      </LDiff>
+      <LStatGroup vertical>
+        <LStat :shadow="false">
+          <template #figure>
+            <i class="bi bi-bar-chart text-4xl"></i>
+          </template>
+          <template #title> Total Page Views </template>
+          <template #value> 89,400 </template>
+          <template #desc> 21% more than last month </template>
+        </LStat>
+        <LStat :shadow="false">
+          <template #figure>
+            <LAvatar
+              image="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg"
+            />
+          </template>
+          <template #title> 86% </template>
+          <template #value>
+            <p class="text-secondary">Tasks done</p>
+          </template>
+          <template #desc> 31 tasks remaining </template>
+          <template #actions>
+            <button class="btn btn-sm">Withdrawal</button>
+            <button class="btn btn-sm">Deposit</button>
+          </template>
+        </LStat>
+      </LStatGroup>
     </div>
   </div>
 </template>
