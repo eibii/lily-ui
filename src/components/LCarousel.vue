@@ -1,5 +1,7 @@
 <script setup lang="ts">
-defineEmits(['onItemActive'])
+defineEmits<{
+  (e: 'onItemActive', idx: number): void
+}>()
 withDefaults(
   defineProps<{
     items: {

@@ -1,5 +1,7 @@
 <script setup lang="ts">
-defineEmits(['onExpand'])
+defineEmits<{
+  (e: 'onExpand', ev: Event): void
+}>()
 withDefaults(
   defineProps<{
     bgClass?: string

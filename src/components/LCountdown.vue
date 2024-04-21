@@ -4,7 +4,9 @@ import { useIntervalFn } from '@vueuse/core'
 
 import { LCountdownNumber } from '.'
 
-const emit = defineEmits(['onComplete'])
+const emit = defineEmits<{
+  (e: 'onComplete', status: boolean): void
+}>()
 const props = withDefaults(
   defineProps<{
     widthClass?: string
@@ -24,7 +26,7 @@ const bootStrap = () => {
     if (count.value > 0) {
       --count.value
     } else {
-      emit('onComplete')
+      emit('onComplete', true)
       pause()
     }
   }, props.delay)

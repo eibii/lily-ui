@@ -1,10 +1,34 @@
 <script setup lang="ts">
-import { LThemeMode, LStatGroup, LStat, LAvatar } from './components'
+import { LThemeMode, LMenu, LBadge } from './components'
 import { ref } from 'vue'
 
 import 'bootstrap-icons/font/bootstrap-icons.css'
 
 const value = ref(false)
+const items = [
+  {
+    iconClass: 'bi bi-house',
+    tooltip: 'Home'
+  },
+  {
+    iconClass: 'bi bi-info-circle',
+    tooltip: 'Info',
+    active: true
+  },
+  {
+    iconClass: 'bi bi-bar-chart',
+    tooltip: 'Stats',
+    badge: '10'
+  },
+  {
+    iconClass: 'bi bi-person',
+    tooltip: 'Profile',
+    disabled: true
+  }
+]
+const onClick = (item: any) => {
+  console.log(item)
+}
 </script>
 
 <template>
@@ -16,32 +40,14 @@ const value = ref(false)
       </div>
     </div>
     <div class="p-40 flex justify-center">
-      <LStatGroup vertical>
-        <LStat :shadow="false">
-          <template #figure>
-            <i class="bi bi-bar-chart text-4xl"></i>
-          </template>
-          <template #title> Total Page Views </template>
-          <template #value> 89,400 </template>
-          <template #desc> 21% more than last month </template>
-        </LStat>
-        <LStat :shadow="false">
-          <template #figure>
-            <LAvatar
-              image="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg"
-            />
-          </template>
-          <template #title> 86% </template>
-          <template #value>
-            <p class="text-secondary">Tasks done</p>
-          </template>
-          <template #desc> 31 tasks remaining </template>
-          <template #actions>
-            <button class="btn btn-sm">Withdrawal</button>
-            <button class="btn btn-sm">Deposit</button>
-          </template>
-        </LStat>
-      </LStatGroup>
+      <LMenu :items="items" shape="square" @on-click="onClick">
+        <template #titleParent>
+          <div class="text-center">Menu</div>
+        </template>
+        <template #badge="{ item }">
+          <LBadge effect="primary">{{ item.badge }}</LBadge>
+        </template>
+      </LMenu>
     </div>
   </div>
 </template>

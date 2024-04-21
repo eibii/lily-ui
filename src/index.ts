@@ -25,7 +25,13 @@ import {
   LDiff,
   LKbd,
   LStatGroup,
-  LStat
+  LStat,
+  LTimeline,
+  LTimelineText,
+  LBreadcrumbs,
+  LBottomNav,
+  LLink,
+  LMenu
 } from './components'
 // standard export with automatic installation
 export default {
@@ -52,6 +58,12 @@ export default {
     app.component('LKbd', LKbd)
     app.component('LStatGroup', LStatGroup)
     app.component('LStat', LStat)
+    app.component('LTimeline', LTimeline)
+    app.component('LTimelineText', LTimelineText)
+    app.component('LBreadcrumbs', LBreadcrumbs)
+    app.component('LBottomNav', LBottomNav)
+    app.component('LLink', LLink)
+    app.component('LMenu', LMenu)
   }
 }
 // individual exports
@@ -77,5 +89,11 @@ export {
   LDiff,
   LKbd,
   LStatGroup,
-  LStat
+  LStat,
+  LTimeline,
+  LTimelineText,
+  LBreadcrumbs,
+  LBottomNav,
+  LLink,
+  LMenu
 }

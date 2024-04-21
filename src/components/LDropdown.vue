@@ -9,7 +9,9 @@ type DropdownOption = {
   value: string
 }
 
-const emit = defineEmits(['onClickOption'])
+const emit = defineEmits<{
+  (e: 'onClickOption', option: DropdownOption): void
+}>()
 withDefaults(
   defineProps<{
     width?: string

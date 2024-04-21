@@ -1,6 +1,7 @@
 <script setup lang="ts">
-defineEmits(['onClose'])
-
+defineEmits<{
+  (e: 'onClose', ev: Event): void
+}>()
 withDefaults(
   defineProps<{
     cardClass?: string

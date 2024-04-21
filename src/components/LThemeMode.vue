@@ -1,7 +1,9 @@
 <script setup lang="ts">
 import { ref, watch } from 'vue'
 
-const emit = defineEmits(['update:modelValue'])
+const emit = defineEmits<{
+  (e: 'update:modelValue', model: boolean): void
+}>()
 const props = withDefaults(
   defineProps<{
     modelValue: boolean
