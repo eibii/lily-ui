@@ -125,24 +125,6 @@ describe('Menu', () => {
 
     expect(wrapper.find('.badge').exists()).toBe(true)
   })
-  it('renders a title slot', () => {
-    const wrapper = mount(Menu, {
-      slots: {
-        title: '<span>Menu Title</span>'
-      }
-    })
-
-    expect(wrapper.text()).toContain('Menu Title')
-  })
-  it('renders a titleParent slot', () => {
-    const wrapper = mount(Menu, {
-      slots: {
-        title: '<span>Menu Title Parent</span>'
-      }
-    })
-
-    expect(wrapper.text()).toContain('Menu Title Parent')
-  })
   it('renders an active item', () => {
     const wrapper = mount(Menu, {
       props: {
@@ -157,5 +139,52 @@ describe('Menu', () => {
     })
 
     expect(wrapper.find('.active').exists()).toBe(true)
+  })
+  it('renders an item with subitems', () => {
+    const wrapper = mount(Menu, {
+      props: {
+        items: [
+          ...items,
+          {
+            title: 'Item 4',
+            items: [
+              {
+                label: 'Subitem 1'
+              },
+              {
+                label: 'Subitem 2'
+              }
+            ]
+          }
+        ]
+      }
+    })
+
+    expect(wrapper.find('.menu-title').exists()).toBe(true)
+    expect(wrapper.text()).toContain('Subitem 1')
+    expect(wrapper.text()).toContain('Subitem 2')
+  })
+  it('renders a collapsed item with subitems', () => {
+    const wrapper = mount(Menu, {
+      props: {
+        items: [
+          ...items,
+          {
+            title: 'Item 4',
+            collapsed: true,
+            items: [
+              {
+                label: 'Subitem 1'
+              },
+              {
+                label: 'Subitem 2'
+              }
+            ]
+          }
+        ]
+      }
+    })
+
+    expect(wrapper.find('details').exists()).toBe(true)
   })
 })

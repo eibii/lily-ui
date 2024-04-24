@@ -1,44 +1,16 @@
 <script setup lang="ts">
 import type { Item } from '../@types/Menu'
 
-import { LSubmenu } from '.'
-
 defineEmits<{
   (e: 'onClick', item: Item): void
 }>()
-withDefaults(
-  defineProps<{
-    items: Item[]
-    menuClass?: string
-    horizontal?: boolean
-    size?: 'default' | 'sm' | 'xs' | 'lg'
-    shape?: 'default' | 'square'
-  }>(),
-  {
-    menuClass: 'bg-base-200',
-    horizontal: false,
-    size: 'default',
-    shape: 'default'
-  }
-)
+defineProps<{
+  items: Item[]
+}>()
 </script>
 
 <template>
-  <ul
-    :class="[
-      'menu',
-      $props.menuClass,
-      {
-        'rounded-box': $props.shape === 'default',
-        '[&_li>*]:rounded-none': $props.shape === 'square',
-        'menu-horizontal': $props.horizontal,
-        'menu-sm': $props.size === 'sm',
-        'menu-xs': $props.size === 'xs',
-        'menu-md': $props.size === 'default',
-        'menu-lg': $props.size === 'lg'
-      }
-    ]"
-  >
+  <ul>
     <template v-for="(item, i) in $props.items" :key="i">
       <template v-if="item.collapsed !== undefined">
         <li>

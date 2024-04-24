@@ -31,7 +31,8 @@ import {
   LBreadcrumbs,
   LBottomNav,
   LLink,
-  LMenu
+  LMenu,
+  LNavbar
 } from './components'
 // standard export with automatic installation
 export default {
@@ -64,6 +65,7 @@ export default {
     app.component('LBottomNav', LBottomNav)
     app.component('LLink', LLink)
     app.component('LMenu', LMenu)
+    app.component('LNavbar', LNavbar)
   }
 }
 // individual exports
@@ -95,5 +97,6 @@ export {
   LBreadcrumbs,
   LBottomNav,
   LLink,
-  LMenu
+  LMenu,
+  LNavbar
 }

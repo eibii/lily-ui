@@ -7,23 +7,53 @@ import 'bootstrap-icons/font/bootstrap-icons.css'
 const value = ref(false)
 const items = [
   {
-    iconClass: 'bi bi-house',
-    tooltip: 'Home'
+    label: 'resume.pdf',
+    iconClass: 'text-xl bi bi-filetype-pdf'
   },
   {
-    iconClass: 'bi bi-info-circle',
-    tooltip: 'Info',
-    active: true
+    title: 'My Files',
+    iconClass: 'text-xl bi bi-menu-app',
+    collapsed: true,
+    items: [
+      {
+        iconClass: 'text-xl bi bi-filetype-psd',
+        label: 'Project-final.psd'
+      },
+      {
+        iconClass: 'text-xl bi bi-filetype-psd',
+        label: 'Project-final-2.psd'
+      },
+      {
+        title: 'Images',
+        iconClass: 'text-xl bi bi-images',
+        collapsed: true,
+        items: [
+          {
+            iconClass: 'text-xl bi bi-filetype-png',
+            label: 'Screenshot1.png'
+          },
+          {
+            iconClass: 'text-xl bi bi-filetype-png',
+            label: 'Screenshot2.png'
+          },
+          {
+            iconClass: 'text-xl bi bi-folder',
+            title: 'Others',
+            collapsed: true,
+            items: [
+              {
+                iconClass: 'text-xl bi bi-filetype-png',
+                label: 'Screenshot3.png'
+              }
+            ]
+          }
+        ]
+      }
+    ]
   },
   {
-    iconClass: 'bi bi-bar-chart',
-    tooltip: 'Stats',
-    badge: '10'
-  },
-  {
-    iconClass: 'bi bi-person',
-    tooltip: 'Profile',
-    disabled: true
+    iconClass: 'text-xl bi bi-filetype-pdf',
+    label: 'reports-final-2.pdf'
   }
 ]
 const onClick = (item: any) => {
@@ -40,10 +70,7 @@ const onClick = (item: any) => {
       </div>
     </div>
     <div class="p-40 flex justify-center">
-      <LMenu :items="items" shape="square" @on-click="onClick">
-        <template #titleParent>
-          <div class="text-center">Menu</div>
-        </template>
+      <LMenu :items="items" @on-click="onClick">
         <template #badge="{ item }">
           <LBadge effect="primary">{{ item.badge }}</LBadge>
         </template>
