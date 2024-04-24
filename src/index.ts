@@ -32,7 +32,8 @@ import {
   LBottomNav,
   LLink,
   LMenu,
-  LNavbar
+  LNavbar,
+  LPagination
 } from './components'
 // standard export with automatic installation
 export default {
@@ -66,6 +67,7 @@ export default {
     app.component('LLink', LLink)
     app.component('LMenu', LMenu)
     app.component('LNavbar', LNavbar)
+    app.component('LPagination', LPagination)
   }
 }
 // individual exports
@@ -98,5 +100,6 @@ export {
   LBottomNav,
   LLink,
   LMenu,
-  LNavbar
+  LNavbar,
+  LPagination
 }

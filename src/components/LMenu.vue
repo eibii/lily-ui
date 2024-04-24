@@ -47,7 +47,11 @@ withDefaults(
               <i v-if="item.iconClass" :class="['flex-none', item.iconClass]" />
               <span :class="['flex-1', item.titleClass]">{{ item.title }}</span>
             </summary>
-            <LSubmenu v-if="item?.items && item.items.length" :items="item.items" />
+            <LSubmenu
+              v-if="item?.items && item.items.length"
+              :items="item.items"
+              @onClick="$emit('onClick', $event)"
+            />
           </details>
         </li>
       </template>
@@ -83,7 +87,11 @@ withDefaults(
             <slot v-if="$slots.badge && item.badge" name="badge" :idx="i" :item="item" />
             <span v-if="!$slots.badge && item.badge" class="badge badge-sm">{{ item.badge }}</span>
           </a>
-          <LSubmenu v-if="item?.items && item.items.length" :items="item.items" />
+          <LSubmenu
+            v-if="item?.items && item.items.length"
+            :items="item.items"
+            @onClick="$emit('onClick', $event)"
+          />
         </li>
       </template>
     </template>
