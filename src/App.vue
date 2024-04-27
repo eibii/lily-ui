@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { LThemeMode, LMenu, LBadge } from './components'
+import { LThemeMode, LPagination } from './components'
 import { ref } from 'vue'
 
 import 'bootstrap-icons/font/bootstrap-icons.css'
@@ -70,11 +70,7 @@ const onClick = (item: any) => {
       </div>
     </div>
     <div class="p-40 flex justify-center">
-      <LMenu :items="items" @on-click="onClick">
-        <template #badge="{ item }">
-          <LBadge effect="primary">{{ item.badge }}</LBadge>
-        </template>
-      </LMenu>
+      <LPagination :page="1" :totalRecords="100" />
     </div>
   </div>
 </template>
