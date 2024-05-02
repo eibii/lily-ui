@@ -6,13 +6,25 @@ import Pagination from '../LPagination.vue'
 
 describe('Pagination', () => {
   it('renders a pagination with default props', () => {
-    const wrapper = mount(Pagination)
+    const wrapper = mount(Pagination, {
+      props: {
+        totalRecords: 10
+      }
+    })
 
-    expect(wrapper.find('.navbar').exists()).toBe(true)
-    expect(wrapper.find('.bg-base-100').exists()).toBe(true)
+    expect(wrapper.find('.flex.gap-3').exists()).toBe(true)
+    expect(wrapper.find('.join').exists()).toBe(true)
     expect(wrapper.props()).toEqual({
+      totalRecords: 10,
+      size: 'default',
       bg: 'default',
-      unstyledBg: false
+      page: 1,
+      pageLinkSize: 5,
+      rowsPerPage: 10,
+      rowsPerPageOptions: [10, 20, 30],
+      shape: 'default',
+      effect: 'default',
+      severity: 'default'
     })
   })
   // it('renders a navbar with custom props', () => {

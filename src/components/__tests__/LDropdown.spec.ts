@@ -11,48 +11,66 @@ describe('Dropdown', () => {
     expect(wrapper.exists()).toBe(true)
     expect(wrapper.props()).toEqual({
       disabled: false,
-      width: 'w-52',
+      widthClass: 'w-52',
       label: '',
       options: [],
+      optionsClass: 'bg-base-200',
+      optionClass: '',
       icon: '',
       iconRight: '',
       loading: false,
       open: false,
       hover: false,
       position: 'default',
-      align: 'default'
+      align: 'default',
+      size: 'default',
+      shape: 'default',
+      effect: 'default',
+      severity: 'default'
     })
   })
   it('renders a dropdown with custom props', () => {
     const wrapper = mount(Dropdown, {
       props: {
         disabled: true,
-        width: 'w-48',
+        widthClass: 'w-48',
         label: 'Dropdown',
         options: [],
+        optionsClass: 'bg-base-200',
+        optionClass: '',
         icon: 'fa fa-check',
         iconRight: '',
         loading: true,
         open: true,
         hover: false,
         position: 'dropdown-top',
-        align: 'dropdown-right'
+        align: 'dropdown-right',
+        size: 'default',
+        shape: 'default',
+        effect: 'default',
+        severity: 'default'
       }
     })
 
     expect(wrapper.find('.dropdown').exists()).toBe(true)
     expect(wrapper.props()).toEqual({
       disabled: true,
-      width: 'w-48',
+      widthClass: 'w-48',
       label: 'Dropdown',
       options: [],
+      optionsClass: 'bg-base-200',
+      optionClass: '',
       icon: 'fa fa-check',
       iconRight: '',
       loading: true,
       open: true,
       hover: false,
       position: 'dropdown-top',
-      align: 'dropdown-right'
+      align: 'dropdown-right',
+      size: 'default',
+      shape: 'default',
+      effect: 'default',
+      severity: 'default'
     })
   })
   it('renders properly', () => {
@@ -62,7 +80,7 @@ describe('Dropdown', () => {
   it('emits click in option', async () => {
     const wrapper = mount(Dropdown, {
       props: {
-        width: 'w-48',
+        widthClass: 'w-48',
         label: 'Dropdown',
         options: [
           { label: 'Option 1', value: '1' },

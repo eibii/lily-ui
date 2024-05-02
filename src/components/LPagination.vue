@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { ref, computed, onMounted, watch } from 'vue'
 
-import { LButton, LDropdown } from '.'
+import { LButton, LDropdown, LInput } from '.'
 
 const emit = defineEmits<{
   (e: 'onPage', page: number): void
@@ -26,6 +26,8 @@ const props = withDefaults(
       | 'success'
       | 'warning'
       | 'danger'
+    template?: string
+    currentPageReportTemplate?: string
   }>(),
   {
     size: 'default',
@@ -36,13 +38,31 @@ const props = withDefaults(
     rowsPerPageOptions: () => [10, 20, 30],
     shape: 'default',
     effect: 'default',
-    severity: 'default'
+    severity: 'default',
+    template: 'FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink RowsPerPageDropdown',
+    currentPageReportTemplate: '({currentPage} of {totalPages})'
   }
 )
 const currentPage = ref(props.page)
 const currentRowsPerPage = ref(props.rowsPerPage)
 const pages = ref<number[]>([])
 const totalPages = computed(() => Math.ceil(props.totalRecords / currentRowsPerPage.value))
+const jumpToPageOptions = computed(() => {
+  let options = []
+  for (let i = 1; i <= totalPages.value; i++) {
+    options.push({ label: `${i}`, value: i, active: i === currentPage.value })
+  }
+  return options
+})
+const currentPageReportText = computed(() => {
+  return props.currentPageReportTemplate
+    .replace(/{currentPage}/g, String(currentPage.value))
+    .replace(/{totalPages}/g, String(totalPages.value))
+    .replace(/{rows}/g, String(currentRowsPerPage.value))
+    .replace(/{first}/g, String(pages.value[0]))
+    .replace(/{last}/g, String(pages.value[pages.value.length - 1]))
+    .replace(/{totalRecords}/g, String(props.totalRecords))
+})
 const calculatePagination = (
   currentPage: number,
   totalPages: number,
@@ -108,6 +128,7 @@ onMounted(() => {
 <template>
   <div class="flex gap-3">
     <div class="join">
+      <!-- FirstPageLink -->
       <LButton
         class="join-item"
         :disabled="currentPage === 1"
@@ -132,6 +153,7 @@ onMounted(() => {
           />
         </svg>
       </LButton>
+      <!-- PrevPageLink -->
       <LButton
         class="join-item"
         :disabled="currentPage === 1"
@@ -153,6 +175,9 @@ onMounted(() => {
           ></path>
         </svg>
       </LButton>
+      <!-- CurrentPageReport -->
+      <span class="join-item self-center px-2">{{ currentPageReportText }}</span>
+      <!-- PageLinks -->
       <template v-for="page in pages" :key="page">
         <LButton
           :class="['join-item', { 'btn-active': currentPage === page }]"
@@ -165,6 +190,7 @@ onMounted(() => {
           >{{ page }}</LButton
         >
       </template>
+      <!-- NextPageLink -->
       <LButton
         class="join-item"
         :disabled="currentPage === totalPages"
@@ -186,6 +212,7 @@ onMounted(() => {
           ></path>
         </svg>
       </LButton>
+      <!-- LastPageLink -->
       <LButton
         class="join-item"
         :disabled="currentPage === totalPages"
@@ -211,6 +238,30 @@ onMounted(() => {
         </svg>
       </LButton>
     </div>
+    <!-- JumpToPageDropdown -->
+    <LDropdown
+      :label="`${currentPage}`"
+      widthClass="w-full"
+      :size="$props.size"
+      :shape="$props.shape"
+      :effect="$props.effect"
+      :severity="$props.severity"
+      :options="jumpToPageOptions"
+      @onClickOption="currentPage = +$event.value"
+    />
+    <!-- JumpToPageInput -->
+    <LInput
+      v-model="currentPage"
+      type="number"
+      min="1"
+      :max="totalPages"
+      widthClass="w-16"
+      :size="$props.size"
+      :shape="$props.shape"
+      :effect="$props.effect"
+      :severity="$props.severity"
+    />
+    <!-- RowsPerPageDropdown -->
     <LDropdown
       :label="`${currentRowsPerPage}`"
       widthClass="w-full"

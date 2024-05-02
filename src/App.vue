@@ -70,7 +70,11 @@ const onClick = (item: any) => {
       </div>
     </div>
     <div class="p-40 flex justify-center">
-      <LPagination :page="1" :totalRecords="100" />
+      <LPagination
+        :page="1"
+        :totalRecords="100"
+        current-page-report-template="Showing {first} to {last} of {totalRecords}"
+      />
     </div>
   </div>
 </template>
