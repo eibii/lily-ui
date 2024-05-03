@@ -73,7 +73,8 @@ const onClick = (item: any) => {
       <LPagination
         :page="1"
         :totalRecords="100"
-        current-page-report-template="Showing {first} to {last} of {totalRecords}"
+        :template="['RowsPerPageDropdown', 'PageLinks', 'CurrentPageReport']"
+        currentPageReportTemplate="{currentPage}"
       />
     </div>
   </div>

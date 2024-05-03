@@ -12,52 +12,74 @@ describe('Pagination', () => {
       }
     })
 
-    expect(wrapper.find('.flex.gap-3').exists()).toBe(true)
+    expect(wrapper.find('.w-full.flex.gap-3').exists()).toBe(true)
     expect(wrapper.find('.join').exists()).toBe(true)
     expect(wrapper.props()).toEqual({
       totalRecords: 10,
       size: 'default',
       bg: 'default',
+      flexPosition: 'default',
       page: 1,
       pageLinkSize: 5,
       rowsPerPage: 10,
       rowsPerPageOptions: [10, 20, 30],
       shape: 'default',
       effect: 'default',
-      severity: 'default'
+      severity: 'default',
+      template: [
+        'FirstPageLink',
+        'PrevPageLink',
+        'PageLinks',
+        'NextPageLink',
+        'LastPageLink',
+        'RowsPerPageDropdown',
+        'CurrentPageReport'
+      ],
+      currentPageReportTemplate: 'Showing {first} to {last} of {totalRecords}',
+      firstPageLinkClass: '',
+      prevPageLinkClass: '',
+      currentPageReportClass: '',
+      pageLinksClass: '',
+      nextPageLinkClass: '',
+      lastPageLinkClass: '',
+      jumpToPageDropdownClass: '',
+      jumpToPageInputClass: '',
+      rowsPerPageDropdownClass: ''
     })
   })
-  // it('renders a navbar with custom props', () => {
-  //   const wrapper = mount(Navbar, {
-  //     props: {
-  //       bg: 'primary',
-  //       unstyledBg: false
-  //     }
-  //   })
+  it('renders a pagination with custom props', () => {
+    const wrapper = mount(Pagination, {
+      props: {
+        totalRecords: 20,
+        size: 'lg',
+        bg: 'neutral',
+        flexPosition: 'end',
+        page: 3,
+        pageLinkSize: 4,
+        rowsPerPage: 5,
+        rowsPerPageOptions: [5, 10, 20, 30],
+        shape: 'circle',
+        effect: 'neutral',
+        severity: 'danger',
+        template: ['PageLinks'],
+        currentPageReportTemplate: 'Showing {first} to {last} of {totalRecords}',
+        firstPageLinkClass: '',
+        prevPageLinkClass: '',
+        currentPageReportClass: '',
+        pageLinksClass: '',
+        nextPageLinkClass: '',
+        lastPageLinkClass: '',
+        jumpToPageDropdownClass: '',
+        jumpToPageInputClass: '',
+        rowsPerPageDropdownClass: ''
+      }
+    })
 
-  //   expect(wrapper.find('.navbar').exists()).toBe(true)
-  //   expect(wrapper.find('.bg-primary.text-primary-content.shadow-xl.rounded-box').exists()).toBe(
-  //     true
-  //   )
-  //   expect(wrapper.props()).toEqual({
-  //     bg: 'primary',
-  //     unstyledBg: false
-  //   })
-  // })
-  // it('renders a navbar with slots', () => {
-  //   const wrapper = mount(Navbar, {
-  //     slots: {
-  //       default: 'default slot',
-  //       start: 'start slot',
-  //       center: 'center slot',
-  //       end: 'end slot'
-  //     }
-  //   })
-
-  //   expect(wrapper.find('.navbar').exists()).toBe(true)
-  //   expect(wrapper.text()).toContain('default slot')
-  //   expect(wrapper.find('.navbar-start').text()).toBe('start slot')
-  //   expect(wrapper.find('.navbar-center').text()).toBe('center slot')
-  //   expect(wrapper.find('.navbar-end').text()).toBe('end slot')
-  // })
+    expect(wrapper.find('.w-full.flex.gap-3').exists()).toBe(true)
+    expect(wrapper.find('.join').exists()).toBe(true)
+    // expect(wrapper.props()).toEqual({
+    //   bg: 'primary',
+    //   unstyledBg: false
+    // })
+  })
 })
