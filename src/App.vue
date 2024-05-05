@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { LThemeMode, LPagination } from './components'
+import { LThemeMode, LTabs, LTab } from './components'
 import { ref } from 'vue'
 
 import 'bootstrap-icons/font/bootstrap-icons.css'
@@ -8,57 +8,24 @@ const value = ref(false)
 const items = [
   {
     label: 'resume.pdf',
-    iconClass: 'text-xl bi bi-filetype-pdf'
-  },
-  {
-    title: 'My Files',
-    iconClass: 'text-xl bi bi-menu-app',
-    collapsed: true,
-    items: [
-      {
-        iconClass: 'text-xl bi bi-filetype-psd',
-        label: 'Project-final.psd'
-      },
-      {
-        iconClass: 'text-xl bi bi-filetype-psd',
-        label: 'Project-final-2.psd'
-      },
-      {
-        title: 'Images',
-        iconClass: 'text-xl bi bi-images',
-        collapsed: true,
-        items: [
-          {
-            iconClass: 'text-xl bi bi-filetype-png',
-            label: 'Screenshot1.png'
-          },
-          {
-            iconClass: 'text-xl bi bi-filetype-png',
-            label: 'Screenshot2.png'
-          },
-          {
-            iconClass: 'text-xl bi bi-folder',
-            title: 'Others',
-            collapsed: true,
-            items: [
-              {
-                iconClass: 'text-xl bi bi-filetype-png',
-                label: 'Screenshot3.png'
-              }
-            ]
-          }
-        ]
-      }
-    ]
-  },
-  {
     iconClass: 'text-xl bi bi-filetype-pdf',
-    label: 'reports-final-2.pdf'
+    active: true
+  },
+  {
+    label: 'profile.jpg',
+    iconClass: 'text-xl bi bi-file-image',
+
+    active: true
+  },
+  {
+    label: 'cover-letter.docx',
+    iconClass: 'text-xl bi bi-file-word'
   }
 ]
 const onClick = (item: any) => {
   console.log(item)
 }
+const tab = ref(1)
 </script>
 
 <template>
@@ -70,12 +37,12 @@ const onClick = (item: any) => {
       </div>
     </div>
     <div class="p-40 flex justify-center">
-      <LPagination
-        :page="1"
-        :totalRecords="100"
-        :template="['RowsPerPageDropdown', 'PageLinks', 'CurrentPageReport']"
-        currentPageReportTemplate="{currentPage}"
-      />
+      <LTabs v-model="tab" type="lifted">
+        <LTab header="AAA"><p>Tab 1</p></LTab>
+        <LTab header="BBB"><p>Tab 2</p></LTab>
+        <LTab header="CCC"><p>Tab 3</p></LTab>
+        <LTab header="DDD"><p>Tab 4</p></LTab>
+      </LTabs>
     </div>
   </div>
 </template>

@@ -33,7 +33,10 @@ import {
   LLink,
   LMenu,
   LNavbar,
-  LPagination
+  LPagination,
+  LSteps,
+  LTabs,
+  LTab
 } from './components'
 // standard export with automatic installation
 export default {
@@ -68,6 +71,9 @@ export default {
     app.component('LMenu', LMenu)
     app.component('LNavbar', LNavbar)
     app.component('LPagination', LPagination)
+    app.component('LSteps', LSteps)
+    app.component('LTabs', LTabs)
+    app.component('LTab', LTab)
   }
 }
 // individual exports
@@ -101,5 +107,8 @@ export {
   LLink,
   LMenu,
   LNavbar,
-  LPagination
+  LPagination,
+  LSteps,
+  LTabs,
+  LTab
 }

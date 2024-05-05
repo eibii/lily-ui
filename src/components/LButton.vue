@@ -15,7 +15,7 @@ withDefaults(
     noAnimation?: boolean
     loadingText?: string
     shape?: 'default' | 'circle' | 'square'
-    effect?: 'default' | 'glass' | 'ghost' | 'neutral' | 'link'
+    effect?: 'default' | 'glass' | 'ghost' | 'link'
     severity?:
       | 'default'
       | 'primary'
@@ -25,6 +25,7 @@ withDefaults(
       | 'success'
       | 'warning'
       | 'danger'
+      | 'neutral'
   }>(),
   {
     type: 'button',
@@ -71,9 +72,9 @@ withDefaults(
         'btn-success': $props.severity === 'success',
         'btn-warning': $props.severity === 'warning',
         'btn-error': $props.severity === 'danger',
+        'btn-neutral': $props.severity === 'neutral',
         'btn-ghost': $props.effect === 'ghost',
         'btn-glass': $props.effect === 'glass',
-        'btn-neutral': $props.effect === 'neutral',
         'btn-link': $props.effect === 'link'
       }
     ]"

@@ -89,7 +89,7 @@ const onClick = (option: DropdownOption) => {
     ]"
   >
     <LButton
-      :class="{ 'min-w-[80px]': $props.shape === 'circle' }"
+      :class="{ 'min-w-[80px]': $props.shape === 'circle' || $props.shape === 'square' }"
       :size="$props.size"
       :shape="$props.shape"
       :effect="$props.effect"

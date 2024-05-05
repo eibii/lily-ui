@@ -20,7 +20,7 @@ type ReportMarker =
 
 type CurrentPageReportTemplate = `${string}${ReportMarker}${string}`
 
-import { ref, computed, onMounted, watch } from 'vue'
+import { ref, computed, watch, onBeforeMount } from 'vue'
 
 import { LButton, LDropdown, LInput } from '.'
 
@@ -92,10 +92,10 @@ const props = withDefaults(
     rowsPerPageDropdownClass: ''
   }
 )
-const currentPage = ref(props.page)
-const currentRowsPerPage = ref(props.rowsPerPage)
+const currentPage = ref()
+const currentRowsPerPage = ref()
 const pages = ref<number[]>([])
-const totalPages = computed(() => Math.ceil(props.totalRecords / currentRowsPerPage.value))
+const totalPages = computed(() => Math.ceil(props.totalRecords / +currentRowsPerPage.value))
 const jumpToPageOptions = computed(() => {
   let options = []
   for (let i = 1; i <= totalPages.value; i++) {
@@ -165,18 +165,22 @@ const rowsPerPageOptions = computed(() =>
   }))
 )
 
-watch(currentPage, (newPage) => {
-  pages.value = calculatePagination(newPage, totalPages.value, props.pageLinkSize)
-  emit('onPage', newPage)
-})
-watch(currentRowsPerPage, (newRows) => {
-  if (currentPage.value > totalPages.value) {
-    currentPage.value = totalPages.value
+watch(currentPage, (newPage, oldPage) => {
+  if (oldPage !== undefined) {
+    pages.value = calculatePagination(newPage, totalPages.value, props.pageLinkSize)
+    emit('onPage', newPage)
   }
-  pages.value = calculatePagination(currentPage.value, newRows, props.pageLinkSize)
+})
+watch(totalPages, (newTotalPages) => {
+  if (currentPage.value > newTotalPages) {
+    currentPage.value = newTotalPages
+  }
+  pages.value = calculatePagination(currentPage.value, newTotalPages, props.pageLinkSize)
 })
 
-onMounted(() => {
+onBeforeMount(() => {
+  currentPage.value = props.page
+  currentRowsPerPage.value = props.rowsPerPage
   pages.value = calculatePagination(props.page, totalPages.value, props.pageLinkSize)
 })
 </script>
@@ -200,6 +204,7 @@ onMounted(() => {
     <!-- FirstPageLink -->
     <LButton
       v-if="orderTemplate.FirstPageLink"
+      data-template="FirstPageLink"
       :class="[
         'join-item',
         {
@@ -243,6 +248,7 @@ onMounted(() => {
     <!-- PrevPageLink -->
     <LButton
       v-if="orderTemplate.PrevPageLink"
+      data-template="PrevPageLink"
       :class="[
         'join-item',
         {
@@ -283,6 +289,7 @@ onMounted(() => {
     <!-- CurrentPageReport -->
     <div
       v-if="orderTemplate.CurrentPageReport"
+      data-template="CurrentPageReport"
       :class="[
         'join-item self-center px-2',
         {
@@ -307,6 +314,7 @@ onMounted(() => {
     <!-- PageLinks -->
     <div
       v-if="orderTemplate.PageLinks"
+      data-template="PageLinks"
       :class="[
         'join',
         {
@@ -342,6 +350,7 @@ onMounted(() => {
     <!-- NextPageLink -->
     <LButton
       v-if="orderTemplate.NextPageLink"
+      data-template="NextPageLink"
       :class="[
         'join-item',
         {
@@ -382,6 +391,7 @@ onMounted(() => {
     <!-- LastPageLink -->
     <LButton
       v-if="orderTemplate.LastPageLink"
+      data-template="LastPageLink"
       :class="[
         'join-item',
         {
@@ -425,6 +435,7 @@ onMounted(() => {
     <!-- JumpToPageDropdown -->
     <div
       v-if="orderTemplate.JumpToPageDropdown"
+      data-template="JumpToPageDropdown"
       :class="[
         'join-item',
         {
@@ -458,6 +469,7 @@ onMounted(() => {
     <!-- JumpToPageInput -->
     <div
       v-if="orderTemplate.JumpToPageInput"
+      data-template="JumpToPageInput"
       :class="[
         'join-item',
         {
@@ -492,6 +504,7 @@ onMounted(() => {
     <!-- RowsPerPageDropdown -->
     <div
       v-if="orderTemplate.RowsPerPageDropdown"
+      data-template="RowsPerPageDropdown"
       :class="[
         'join-item',
         {

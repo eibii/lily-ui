@@ -61,7 +61,7 @@ describe('Pagination', () => {
         shape: 'circle',
         effect: 'neutral',
         severity: 'danger',
-        template: ['PageLinks'],
+        template: ['PageLinks', 'CurrentPageReport'],
         currentPageReportTemplate: 'Showing {first} to {last} of {totalRecords}',
         firstPageLinkClass: '',
         prevPageLinkClass: '',
@@ -77,9 +77,33 @@ describe('Pagination', () => {
 
     expect(wrapper.find('.w-full.flex.gap-3').exists()).toBe(true)
     expect(wrapper.find('.join').exists()).toBe(true)
-    // expect(wrapper.props()).toEqual({
-    //   bg: 'primary',
-    //   unstyledBg: false
-    // })
+    expect(wrapper.find('[data-template="PageLinks"]').exists()).toBe(true)
+    expect(wrapper.find('[data-template="CurrentPageReport"]').text()).toContain(
+      'Showing 1 to 4 of 20'
+    )
+    expect(wrapper.props()).toEqual({
+      totalRecords: 20,
+      size: 'lg',
+      bg: 'neutral',
+      flexPosition: 'end',
+      page: 3,
+      pageLinkSize: 4,
+      rowsPerPage: 5,
+      rowsPerPageOptions: [5, 10, 20, 30],
+      shape: 'circle',
+      effect: 'neutral',
+      severity: 'danger',
+      template: ['PageLinks', 'CurrentPageReport'],
+      currentPageReportTemplate: 'Showing {first} to {last} of {totalRecords}',
+      firstPageLinkClass: '',
+      prevPageLinkClass: '',
+      currentPageReportClass: '',
+      pageLinksClass: '',
+      nextPageLinkClass: '',
+      lastPageLinkClass: '',
+      jumpToPageDropdownClass: '',
+      jumpToPageInputClass: '',
+      rowsPerPageDropdownClass: ''
+    })
   })
 })
