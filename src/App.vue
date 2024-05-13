@@ -1,6 +1,8 @@
 <script setup lang="ts">
-import { LThemeMode, LTabs, LTab } from './components'
 import { ref } from 'vue'
+import vTooltip from './directives/Tooltip'
+
+import { LThemeMode, LButton } from './components'
 
 import 'bootstrap-icons/font/bootstrap-icons.css'
 
@@ -37,12 +39,7 @@ const tab = ref(1)
       </div>
     </div>
     <div class="p-40 flex justify-center">
-      <LTabs v-model="tab" type="lifted">
-        <LTab header="AAA"><p>Tab 1</p></LTab>
-        <LTab header="BBB"><p>Tab 2</p></LTab>
-        <LTab header="CCC"><p>Tab 3</p></LTab>
-        <LTab header="DDD"><p>Tab 4</p></LTab>
-      </LTabs>
+      <LButton v-tooltip.open.bottom.primary="'hello'" label="Hover me" />
     </div>
   </div>
 </template>

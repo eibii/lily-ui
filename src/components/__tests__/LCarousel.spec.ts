@@ -17,7 +17,11 @@ describe('Carousel', () => {
   ]
 
   it('renders a carousel with default props', () => {
-    const wrapper = mount(Carousel)
+    const wrapper = mount(Carousel, {
+      props: {
+        items: []
+      }
+    })
 
     expect(wrapper.find('.carousel').exists()).toBe(true)
     expect(wrapper.props()).toEqual({
@@ -30,6 +34,7 @@ describe('Carousel', () => {
       slide: false
     })
   })
+
   it('renders a carousel with custom props', () => {
     const wrapper = mount(Carousel, {
       props: {
@@ -60,6 +65,7 @@ describe('Carousel', () => {
       slide: false
     })
   })
+
   it('render an carousel with indicator', () => {
     const wrapper = mount(Carousel, {
       props: {
@@ -74,6 +80,7 @@ describe('Carousel', () => {
     expect(wrapper.find('.carousel-vertical').exists()).toBe(false)
     expect(wrapper.find('svg').exists()).toBe(false)
   })
+
   it('render an carousel with slide', () => {
     const wrapper = mount(Carousel, {
       props: {
@@ -88,8 +95,11 @@ describe('Carousel', () => {
     expect(wrapper.find('.carousel-vertical').exists()).toBe(false)
     expect(wrapper.find('svg').exists()).toBe(true)
   })
+
   it('emit onItemActive event', async () => {
-    const wrapper = mount(Carousel, { items, slide: true })
+    const wrapper = mount(Carousel, {
+      props: { items, slide: true }
+    })
 
     wrapper.vm.$emit('onItemActive', 2)
     expect(wrapper.emitted('onItemActive')).toBeTruthy()

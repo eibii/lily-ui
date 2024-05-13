@@ -7,7 +7,11 @@ import LTab from '../LTab.vue'
 
 describe('Tabs', () => {
   it('renders a tabs with default props', () => {
-    const wrapper = mount(Tabs)
+    const wrapper = mount(Tabs, {
+      slots: {
+        default: '<div>Slot default</div>'
+      }
+    })
 
     expect(wrapper.find('.tabs').exists()).toBe(true)
     expect(wrapper.props()).toEqual({
@@ -23,6 +27,9 @@ describe('Tabs', () => {
         modelValue: 1,
         size: 'lg',
         type: 'lifted'
+      },
+      slots: {
+        default: '<div>Slot default</div>'
       }
     })
 
@@ -36,7 +43,6 @@ describe('Tabs', () => {
     })
   })
 
-  // criar teste para verificar se o componente Tab foi renderizado dentro do componente Tabs
   it('renders a tabs items', () => {
     const wrapper = mount(Tabs, {
       global: {
@@ -45,7 +51,7 @@ describe('Tabs', () => {
         }
       },
       slots: {
-        'l-tab': '<l-tab header="Tab 1">Tab 1 content</l-tab>'
+        default: '<l-tab header="Tab 1">Tab 1 content</l-tab>'
       }
     })
 

@@ -8,7 +8,7 @@ withDefaults(
       image: string
       alt: string
     }[]
-    align: 'default' | 'center' | 'end'
+    align?: 'default' | 'center' | 'end'
     vertical?: boolean
     itemClass?: string
     fullBleed?: boolean

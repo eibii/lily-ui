@@ -1,5 +1,7 @@
 import type { App } from 'vue'
 
+import vTooltip from './directives/Tooltip'
+
 import './assets/sass/tailwind.sass'
 import 'bootstrap-icons/font/bootstrap-icons.css'
 
@@ -36,7 +38,13 @@ import {
   LPagination,
   LSteps,
   LTabs,
-  LTab
+  LTab,
+  LAlert,
+  LLoading,
+  LProgress,
+  LRadialProgress,
+  LSkeleton,
+  LToast
 } from './components'
 // standard export with automatic installation
 export default {
@@ -74,6 +82,13 @@ export default {
     app.component('LSteps', LSteps)
     app.component('LTabs', LTabs)
     app.component('LTab', LTab)
+    app.component('LAlert', LAlert)
+    app.component('LLoading', LLoading)
+    app.component('LProgress', LProgress)
+    app.component('LRadialProgress', LRadialProgress)
+    app.component('LSkeleton', LSkeleton)
+    app.component('LToast', LToast)
+    app.directive('tooltip', vTooltip)
   }
 }
 // individual exports
@@ -110,5 +125,12 @@ export {
   LPagination,
   LSteps,
   LTabs,
-  LTab
+  LTab,
+  LAlert,
+  LLoading,
+  LProgress,
+  LRadialProgress,
+  LSkeleton,
+  LToast,
+  vTooltip
 }

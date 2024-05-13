@@ -6,7 +6,11 @@ import ThemeMode from '../LThemeMode.vue'
 
 describe('ThemeMode', () => {
   it('renders a theme-mode with default props', () => {
-    const wrapper = mount(ThemeMode)
+    const wrapper = mount(ThemeMode, {
+      props: {
+        modelValue: false
+      }
+    })
 
     expect(wrapper.find('.swap').exists()).toBe(true)
     expect(wrapper.props()).toEqual({

@@ -18,7 +18,7 @@ const emit = defineEmits<{
 withDefaults(
   defineProps<{
     widthClass?: string
-    label: string
+    label?: string
     options?: DropdownOption[]
     optionsClass?: string
     optionClass?: string
@@ -32,7 +32,7 @@ withDefaults(
     align?: 'default' | 'dropdown-left' | 'dropdown-right'
     size?: 'xs' | 'sm' | 'default' | 'lg'
     shape?: 'default' | 'circle' | 'square'
-    effect?: 'default' | 'glass' | 'ghost' | 'neutral' | 'link'
+    effect?: 'default' | 'glass' | 'ghost' | 'link'
     severity?:
       | 'default'
       | 'primary'
@@ -42,6 +42,7 @@ withDefaults(
       | 'success'
       | 'warning'
       | 'danger'
+      | 'neutral'
   }>(),
   {
     widthClass: 'w-52',

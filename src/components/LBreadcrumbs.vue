@@ -13,7 +13,7 @@ withDefaults(
   defineProps<{
     items: Item[]
     iconClass?: string
-    textSize: 'default' | 'xs' | 'md' | 'lg'
+    textSize?: 'default' | 'xs' | 'md' | 'lg'
     lastItemClick?: boolean
   }>(),
   {

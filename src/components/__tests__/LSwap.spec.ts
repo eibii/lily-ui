@@ -6,7 +6,11 @@ import Swap from '../LSwap.vue'
 
 describe('Swap', () => {
   it('renders a button with default props', () => {
-    const wrapper = mount(Swap)
+    const wrapper = mount(Swap, {
+      props: {
+        modelValue: false
+      }
+    })
 
     expect(wrapper.find('.swap').exists()).toBe(true)
     expect(wrapper.props()).toEqual({

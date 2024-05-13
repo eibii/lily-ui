@@ -2,7 +2,7 @@
 withDefaults(
   defineProps<{
     width?: string
-    label: string
+    label?: string
     icon?: string
     iconRight?: string
     disabled?: boolean

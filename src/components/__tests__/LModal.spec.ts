@@ -6,7 +6,11 @@ import Modal from '../LModal.vue'
 
 describe('Modal', () => {
   it('renders a modal with default props', () => {
-    const wrapper = mount(Modal)
+    const wrapper = mount(Modal, {
+      props: {
+        modelValue: false
+      }
+    })
 
     expect(wrapper.exists()).toBe(true)
     expect(wrapper.props()).toEqual({
