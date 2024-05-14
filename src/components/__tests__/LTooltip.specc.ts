@@ -14,7 +14,7 @@ describe('Tooltip', () => {
     })
 
     await nextTick()
-    console.log(wrapper.find('.tooltip'))
+    console.log(wrapper.vm)
 
     // expect(wrapper.find('.tooltip').exists()).toBe(true)
     // expect(wrapper.find('.tooltip').attributes('data-tip')).toBe('Test tooltip')

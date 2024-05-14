@@ -1,7 +1,9 @@
 <script setup lang="ts">
+import type { SizeBase } from '../@types/Props'
+
 withDefaults(
   defineProps<{
-    size?: 'xs' | 'sm' | 'default' | 'lg'
+    size?: SizeBase
     effect?: 'default' | 'neutral' | 'primary' | 'secondary' | 'accent' | 'ghost'
     outline?: boolean
   }>(),

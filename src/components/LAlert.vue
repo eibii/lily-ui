@@ -1,12 +1,14 @@
 <script setup lang="ts">
+import type { Title, Label, IconClass, SeverityBase } from '../@types/Props'
+
 import { ref, onBeforeMount } from 'vue'
 
 const props = withDefaults(
   defineProps<{
-    title?: string
-    label?: string
-    iconClass?: string
-    severity?: 'default' | 'info' | 'success' | 'warning' | 'danger'
+    title?: Title
+    label?: Label
+    iconClass?: IconClass
+    severity?: SeverityBase
   }>(),
   {
     title: '',
