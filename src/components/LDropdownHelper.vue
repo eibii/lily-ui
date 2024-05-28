@@ -1,25 +1,27 @@
 <script setup lang="ts">
+import type { SizeBase, AlignDropdown, PositionDropdown, ShapeBase } from '../@types/Props'
+
 withDefaults(
   defineProps<{
-    width?: string
-    size?: 'xs' | 'sm' | 'lg'
+    widthClass?: string
+    size?: SizeBase
     open?: boolean
     hover?: boolean
-    position?: 'dropdown-top' | 'dropdown-bottom' | 'dropdown-end'
-    shape?: 'circle' | 'square'
-    align?: 'default' | 'dropdown-left' | 'dropdown-right'
+    position?: PositionDropdown
+    shape?: ShapeBase
+    align?: AlignDropdown
     iconColor?: string
     cardClass?: string
     cardBg?: string
     cardColor?: string
   }>(),
   {
-    width: 'w-64',
-    size: 'xs',
+    widthClass: 'w-64',
+    size: 'default',
     open: false,
     hover: false,
-    position: 'dropdown-end',
-    shape: 'circle',
+    position: 'default',
+    shape: 'default',
     align: 'default',
     iconColor: 'text-info',
     cardClass: '',
@@ -36,6 +38,7 @@ withDefaults(
       $props.position,
       $props.align,
       {
+        'dropdown-end': $props.position === 'default',
         'dropdown-hover': $props.hover,
         'dropdown-open': $props.open
       }
@@ -50,8 +53,9 @@ withDefaults(
         {
           'btn-xs': $props.size === 'xs',
           'btn-sm': $props.size === 'sm',
+          'btn-md': $props.size === 'default',
           'btn-lg': $props.size === 'lg',
-          'btn-circle': $props.shape === 'circle',
+          'btn-circle': $props.shape === 'circle' || $props.shape === 'default',
           'btn-square': $props.shape === 'square'
         }
       ]"
@@ -75,7 +79,7 @@ withDefaults(
       tabindex="0"
       :class="[
         'dropdown-content z-[1] card card-compact rounded-box shadow',
-        $props.width,
+        $props.widthClass,
         $props.cardBg,
         $props.cardColor
       ]"

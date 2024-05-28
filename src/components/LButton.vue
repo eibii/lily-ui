@@ -1,8 +1,10 @@
 <script setup lang="ts">
+import type { SizeBase, ShapeBase, Effect, Severity } from '../@types/Props'
+
 withDefaults(
   defineProps<{
     type?: 'button' | 'submit'
-    size?: 'xs' | 'sm' | 'default' | 'lg'
+    size?: SizeBase
     label?: string
     icon?: string
     iconRight?: string
@@ -14,18 +16,9 @@ withDefaults(
     loading?: boolean
     noAnimation?: boolean
     loadingText?: string
-    shape?: 'default' | 'circle' | 'square'
-    effect?: 'default' | 'glass' | 'ghost' | 'link'
-    severity?:
-      | 'default'
-      | 'primary'
-      | 'secondary'
-      | 'accent'
-      | 'info'
-      | 'success'
-      | 'warning'
-      | 'danger'
-      | 'neutral'
+    shape?: ShapeBase
+    effect?: Effect
+    severity?: Severity
   }>(),
   {
     type: 'button',

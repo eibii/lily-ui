@@ -11,7 +11,7 @@ describe('Link', () => {
     expect(wrapper.find('.link').exists()).toBe(true)
     expect(wrapper.props()).toEqual({
       label: '',
-      color: 'default',
+      serverity: 'default',
       underline: false
     })
   })
@@ -19,7 +19,7 @@ describe('Link', () => {
     const wrapper = mount(Link, {
       props: {
         label: '',
-        color: 'secondary',
+        serverity: 'secondary',
         underline: true
       }
     })
@@ -29,7 +29,7 @@ describe('Link', () => {
     expect(wrapper.find('.link-hover').exists()).toBe(true)
     expect(wrapper.props()).toEqual({
       label: '',
-      color: 'secondary',
+      serverity: 'secondary',
       underline: true
     })
   })

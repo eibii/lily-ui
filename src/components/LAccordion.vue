@@ -1,16 +1,14 @@
 <script setup lang="ts">
-import type { BgClass, Name, Active, Unstyled, CollapseIcon } from '../@types/Props'
-
 defineEmits<{
   (e: 'onExpand', ev: Event): void
 }>()
 withDefaults(
   defineProps<{
-    bgClass?: BgClass
-    name?: Name
-    active?: Active
-    unstyledTitle?: Unstyled
-    collapseIcon?: CollapseIcon
+    bgClass?: string
+    name?: string
+    active?: boolean
+    unstyledTitle?: boolean
+    collapseIcon?: string
   }>(),
   {
     bgClass: 'bg-base-200',

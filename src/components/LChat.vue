@@ -1,17 +1,11 @@
 <script setup lang="ts">
+import type { Severity } from '../@types/Props'
+
 withDefaults(
   defineProps<{
     align?: 'default' | 'end'
     headerTime?: string
-    severity?:
-      | 'default'
-      | 'primary'
-      | 'secondary'
-      | 'accent'
-      | 'info'
-      | 'success'
-      | 'warning'
-      | 'danger'
+    severity?: Severity
   }>(),
   {
     align: 'default',
@@ -48,7 +42,8 @@ withDefaults(
           'chat-bubble-info': $props.severity === 'info',
           'chat-bubble-success': $props.severity === 'success',
           'chat-bubble-warning': $props.severity === 'warning',
-          'chat-bubble-error': $props.severity === 'danger'
+          'chat-bubble-error': $props.severity === 'danger',
+          'chat-bubble-neutral': $props.severity === 'neutral'
         }
       ]"
     >

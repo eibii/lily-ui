@@ -1,25 +1,15 @@
 <script setup lang="ts">
+import type { SeverityExtend } from '../@types/Props'
+
 withDefaults(
   defineProps<{
     label?: string
-    color?:
-      | 'default'
-      | 'primary'
-      | 'secondary'
-      | 'accent'
-      | 'neutral'
-      | 'success'
-      | 'danger'
-      | 'warning'
-      | 'info'
-      | 'light'
-      | 'dark'
-      | 'link'
+    serverity?: SeverityExtend
     underline?: boolean
   }>(),
   {
     label: '',
-    color: 'default',
+    serverity: 'default',
     underline: false
   }
 )
@@ -30,17 +20,17 @@ withDefaults(
     :class="[
       'link',
       {
-        'link-primary': $props.color === 'primary',
-        'link-secondary': $props.color === 'secondary',
-        'link-accent': $props.color === 'accent',
-        'link-neutral': $props.color === 'neutral',
-        'link-success': $props.color === 'success',
-        'link-error': $props.color === 'danger',
-        'link-warning': $props.color === 'warning',
-        'link-info': $props.color === 'info',
-        'link-light': $props.color === 'light',
-        'link-dark': $props.color === 'dark',
-        'link-link': $props.color === 'link',
+        'link-primary': $props.serverity === 'primary',
+        'link-secondary': $props.serverity === 'secondary',
+        'link-accent': $props.serverity === 'accent',
+        'link-neutral': $props.serverity === 'neutral',
+        'link-success': $props.serverity === 'success',
+        'link-error': $props.serverity === 'danger',
+        'link-warning': $props.serverity === 'warning',
+        'link-info': $props.serverity === 'info',
+        'link-light': $props.serverity === 'light',
+        'link-dark': $props.serverity === 'dark',
+        'link-link': $props.serverity === 'link',
         'link-hover': $props.underline
       }
     ]"

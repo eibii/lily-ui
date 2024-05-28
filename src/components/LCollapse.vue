@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import type { CollapseIcon } from '../@types/Props'
+
 defineEmits<{
   (e: 'onExpand', ev: Event): void
 }>()
@@ -8,7 +10,7 @@ withDefaults(
     focus?: boolean
     active?: boolean
     unstyledTitle?: boolean
-    collapseIcon?: 'arrow' | 'plus' | 'default'
+    collapseIcon?: CollapseIcon
   }>(),
   {
     bgClass: 'bg-base-200',

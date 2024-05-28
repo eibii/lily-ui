@@ -1,12 +1,10 @@
 <script setup lang="ts">
-import type { Counter, CounterClass } from '../@types/Props'
-
 import { onMounted, nextTick } from 'vue'
 
 withDefaults(
   defineProps<{
-    counter?: Counter
-    counterClass?: CounterClass
+    counter?: string
+    counterClass?: string
   }>(),
   {
     counter: '',

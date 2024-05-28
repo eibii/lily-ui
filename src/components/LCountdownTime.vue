@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import type { AnimationCount, LayoutCount } from '../@types/Props'
+
 import { onMounted, reactive, watch, computed } from 'vue'
 import { useIntervalFn } from '@vueuse/core'
 
@@ -18,8 +20,8 @@ const props = withDefaults(
     textHours?: string
     textMinutes?: string
     textSeconds?: string
-    layout?: 'boxes' | 'default' | 'labelsUnder'
-    animation?: 'default' | 'jump' | 'flip' | 'fade'
+    layout?: LayoutCount
+    animation?: AnimationCount
   }>(),
   {
     days: undefined,

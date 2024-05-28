@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import type { SizeBase, TypeTab } from '../@types/Props'
+
 import { ref, computed, onMounted, watch } from 'vue'
 
 const emit = defineEmits<{
@@ -7,8 +9,8 @@ const emit = defineEmits<{
 const props = withDefaults(
   defineProps<{
     modelValue?: number
-    size?: 'default' | 'xs' | 'sm' | 'lg'
-    type?: 'default' | 'none' | 'boxed' | 'lifted'
+    size?: SizeBase
+    type?: TypeTab
   }>(),
   {
     modelValue: 0,

@@ -1,33 +1,19 @@
 <script setup lang="ts">
+import type { Severity } from '../@types/Props'
+
 type Step = {
   label: string
   dataContent?: string
   iconClass?: string
   active?: boolean
-  severity?:
-    | 'primary'
-    | 'secondary'
-    | 'accent'
-    | 'info'
-    | 'success'
-    | 'warning'
-    | 'danger'
-    | 'neutral'
+  severity?: Severity
 }
 
 withDefaults(
   defineProps<{
     steps: Step[]
     vertical?: boolean
-    severity?:
-      | 'primary'
-      | 'secondary'
-      | 'accent'
-      | 'info'
-      | 'success'
-      | 'warning'
-      | 'danger'
-      | 'neutral'
+    severity?: Severity
   }>(),
   {
     vertical: false,

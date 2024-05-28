@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import type { SizeBase, SeverityBase, Effect, ShapeBase } from '../@types/Props'
+
 type ListTemplate =
   | 'FirstPageLink'
   | 'PrevPageLink'
@@ -29,25 +31,16 @@ const emit = defineEmits<{
 }>()
 const props = withDefaults(
   defineProps<{
-    size?: 'xs' | 'sm' | 'default' | 'lg'
-    bg?: 'default' | 'primary' | 'secondary' | 'accent' | 'neutral'
+    size?: SizeBase
     flexPosition?: 'start' | 'default' | 'end' | 'between' | 'around' | 'evenly' | 'stretch'
     totalRecords: number
     page?: number
     pageLinkSize?: number
     rowsPerPage?: number
     rowsPerPageOptions?: number[]
-    shape?: 'default' | 'circle' | 'square'
-    effect?: 'default' | 'glass' | 'ghost' | 'neutral' | 'link'
-    severity?:
-      | 'default'
-      | 'primary'
-      | 'secondary'
-      | 'accent'
-      | 'info'
-      | 'success'
-      | 'warning'
-      | 'danger'
+    shape?: ShapeBase
+    effect?: Effect
+    severity?: SeverityBase
     template?: ListTemplate[]
     currentPageReportTemplate?: CurrentPageReportTemplate
     firstPageLinkClass?: string
@@ -62,7 +55,6 @@ const props = withDefaults(
   }>(),
   {
     size: 'default',
-    bg: 'default',
     flexPosition: 'default',
     page: 1,
     pageLinkSize: 5,

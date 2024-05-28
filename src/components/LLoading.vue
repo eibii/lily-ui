@@ -1,18 +1,11 @@
 <script setup lang="ts">
+import type { TypeLoading, SizeBase, Severity } from '../@types/Props'
+
 withDefaults(
   defineProps<{
-    type?: 'default' | 'dots' | 'ring' | 'ball' | 'bars' | 'infinity'
-    size?: 'xs' | 'sm' | 'default' | 'lg'
-    severity?:
-      | 'default'
-      | 'primary'
-      | 'secondary'
-      | 'accent'
-      | 'info'
-      | 'success'
-      | 'warning'
-      | 'danger'
-      | 'neutral'
+    type?: TypeLoading
+    size?: SizeBase
+    severity?: Severity
   }>(),
   {
     type: 'default',

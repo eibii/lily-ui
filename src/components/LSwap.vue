@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import type { Effect, ShapeBase, Severity, AnimateBase } from '../@types/Props'
+
 import { ref, watch } from 'vue'
 
 const emit = defineEmits<{
@@ -13,9 +15,10 @@ const props = withDefaults(
     onText?: string
     offText?: string
     btn?: boolean
-    shape?: 'default' | 'circle' | 'square'
-    effect?: 'default' | 'glass' | 'ghost' | 'neutral' | 'link'
-    animate?: 'default' | 'rotate' | 'flip'
+    shape?: ShapeBase
+    effect?: Effect
+    severity?: Severity
+    animate?: AnimateBase
   }>(),
   {
     disabled: false,
@@ -26,6 +29,7 @@ const props = withDefaults(
     btn: false,
     shape: 'default',
     effect: 'default',
+    Severity: 'default',
     animate: 'default'
   }
 )
@@ -55,8 +59,15 @@ watch(check, (value) => {
         'btn-square': $props.shape === 'square',
         'btn-ghost': $props.effect === 'ghost',
         'btn-glass': $props.effect === 'glass',
-        'btn-neutral': $props.effect === 'neutral',
         'btn-link': $props.effect === 'link',
+        'btn-primary': $props.severity === 'primary',
+        'btn-secondary': $props.severity === 'secondary',
+        'btn-accent': $props.severity === 'accent',
+        'btn-info': $props.severity === 'info',
+        'btn-success': $props.severity === 'success',
+        'btn-warning': $props.severity === 'warning',
+        'btn-error': $props.severity === 'danger',
+        'btn-neutral': $props.severity === 'neutral',
         'swap-rotate': $props.animate === 'rotate',
         'swap-flip': $props.animate === 'flip'
       }

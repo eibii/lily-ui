@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import type { AnimationCount } from '../@types/Props'
+
 import { computed } from 'vue'
 import * as _ from 'lodash-es'
 
@@ -7,7 +9,7 @@ const props = withDefaults(
     value: number
     numberDigits?: number
     widthClass?: string
-    animation?: 'default' | 'jump' | 'flip' | 'fade'
+    animation?: AnimationCount
   }>(),
   {
     numberDigits: 1,

@@ -12,14 +12,14 @@ const props = withDefaults(
     closable?: boolean
     closeButton?: boolean
     responsive?: boolean
-    width?: string
+    widthClass?: string
     unstyledTitle?: boolean
   }>(),
   {
     closable: true,
     closeButton: true,
     responsive: true,
-    width: '',
+    widthClass: '',
     unstyledTitle: false
   }
 )
@@ -62,7 +62,7 @@ onMounted(() => {
       }
     ]"
   >
-    <div :class="['modal-box', props.width]">
+    <div :class="['modal-box', props.widthClass]">
       <form v-if="props.closeButton" method="dialog">
         <LButton
           size="sm"

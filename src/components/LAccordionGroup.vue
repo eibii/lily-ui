@@ -1,11 +1,9 @@
 <script setup lang="ts">
-import type { BorderClass } from '../@types/Props'
-
 import { onMounted, nextTick } from 'vue'
 
 const props = withDefaults(
   defineProps<{
-    borderClass?: BorderClass
+    borderClass?: string
   }>(),
   {
     borderClass: 'border-base-300'

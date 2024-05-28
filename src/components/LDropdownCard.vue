@@ -1,21 +1,23 @@
 <script setup lang="ts">
+import type { AlignDropdown, PositionDropdownCard } from '../@types/Props'
+
 withDefaults(
   defineProps<{
-    width?: string
+    widthClass?: string
     label?: string
     icon?: string
     iconRight?: string
     disabled?: boolean
     open?: boolean
     hover?: boolean
-    position?: 'default' | 'dropdown-top' | 'dropdown-bottom' | 'dropdown-end'
-    align?: 'default' | 'dropdown-left' | 'dropdown-right'
+    position?: PositionDropdownCard
+    align?: AlignDropdown
     cardClass?: string
     cardBg?: string
     cardColor?: string
   }>(),
   {
-    width: 'w-52',
+    widthClass: 'w-52',
     label: '',
     icon: '',
     iconRight: '',
@@ -73,7 +75,7 @@ withDefaults(
       tabindex="0"
       :class="[
         'dropdown-content z-[1] card card-compact p-2 shadow',
-        $props.width,
+        $props.widthClass,
         $props.cardBg,
         $props.cardColor
       ]"

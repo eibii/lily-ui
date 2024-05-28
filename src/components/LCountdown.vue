@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import type { AnimationCount } from '../@types/Props'
+
 import { onMounted, ref, watch } from 'vue'
 import { useIntervalFn } from '@vueuse/core'
 
@@ -12,7 +14,7 @@ const props = withDefaults(
     widthClass?: string
     value: number
     delay?: number
-    animation?: 'default' | 'jump' | 'flip' | 'fade'
+    animation?: AnimationCount
   }>(),
   {
     widthClass: 'w-20',

@@ -1,7 +1,9 @@
 <script setup lang="ts">
+import type { SizeBase } from '../@types/Props'
+
 withDefaults(
   defineProps<{
-    size?: 'default' | 'lg' | 'sm' | 'xs'
+    size?: SizeBase
   }>(),
   {
     size: 'default'

@@ -2,32 +2,12 @@
 import { ref } from 'vue'
 import vTooltip from './directives/Tooltip'
 
-import { LThemeMode, LButton } from './components'
+import { LThemeMode, LCheckbox } from './components'
 
 import 'bootstrap-icons/font/bootstrap-icons.css'
 
 const value = ref(false)
-const items = [
-  {
-    label: 'resume.pdf',
-    iconClass: 'text-xl bi bi-filetype-pdf',
-    active: true
-  },
-  {
-    label: 'profile.jpg',
-    iconClass: 'text-xl bi bi-file-image',
-
-    active: true
-  },
-  {
-    label: 'cover-letter.docx',
-    iconClass: 'text-xl bi bi-file-word'
-  }
-]
-const onClick = (item: any) => {
-  console.log(item)
-}
-const tab = ref(1)
+const check = ref([])
 </script>
 
 <template>
@@ -38,8 +18,13 @@ const tab = ref(1)
         <LThemeMode v-model="value" default-mode="light" width-class="w-8" height-class="h-8" />
       </div>
     </div>
-    <div class="p-40 flex justify-center">
-      <LButton v-tooltip.open.bottom.primary="'hello'" label="Hover me" />
+    <div class="py-10 flex justify-center">
+      <pre>{{ check }}</pre>
+    </div>
+    <div class="p-40 flex justify-center gap-3">
+      <LCheckbox v-model="check" value="item1" />
+      <LCheckbox v-model="check" value="item2" />
+      <LCheckbox v-model="check" value="item3" />
     </div>
   </div>
 </template>

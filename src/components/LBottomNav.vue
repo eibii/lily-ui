@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import type { SizeBase } from '../@types/Props'
+
 type Item = {
   itemClass?: string
   iconClass?: string
@@ -14,11 +16,11 @@ withDefaults(
   defineProps<{
     items: Item[]
     itemsClass?: string
-    size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl'
+    size?: SizeBase
   }>(),
   {
     itemsClass: '',
-    size: 'md'
+    size: 'default'
   }
 )
 </script>
@@ -30,7 +32,7 @@ withDefaults(
       {
         'btm-nav-xs': $props.size === 'xs',
         'btm-nav-sm': $props.size === 'sm',
-        'btm-nav-md': $props.size === 'md',
+        'btm-nav-md': $props.size === 'default',
         'btm-nav-lg': $props.size === 'lg'
       }
     ]"

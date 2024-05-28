@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import type { AnimateBase, DefaultMode } from '../@types/Props'
+
 import { ref, watch } from 'vue'
 
 const emit = defineEmits<{
@@ -9,9 +11,9 @@ const props = withDefaults(
     modelValue: boolean
     widthClass?: string
     heightClass?: string
-    defaultMode?: 'light' | 'dark'
+    defaultMode?: DefaultMode
     disabled?: boolean
-    animate?: 'rotate' | 'flip'
+    animate?: AnimateBase
   }>(),
   {
     widthClass: 'w-10',

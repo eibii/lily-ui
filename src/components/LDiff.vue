@@ -1,21 +1,9 @@
 <script setup lang="ts">
+import type { AspectBase } from '../@types/Props'
+
 withDefaults(
   defineProps<{
-    aspect?:
-      | 'default'
-      | 'auto'
-      | 'square'
-      | 'video'
-      | '16/9'
-      | '16/4'
-      | '4/3'
-      | '1/1'
-      | '3/4'
-      | '9/16'
-      | '4/16'
-      | '3/16'
-      | '2/16'
-      | '1/16'
+    aspect?: AspectBase
   }>(),
   {
     aspect: 'default'

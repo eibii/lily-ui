@@ -1,7 +1,12 @@
 <script setup lang="ts">
-import { ref } from 'vue'
-
-import { LButton } from '.'
+import type {
+  SizeBase,
+  ShapeBase,
+  Effect,
+  Severity,
+  PositionDropdown,
+  AlignDropdown
+} from '../@types/Props'
 
 type DropdownOption = {
   disabled?: boolean
@@ -11,6 +16,10 @@ type DropdownOption = {
   value: string | number
   active?: boolean
 }
+
+import { ref } from 'vue'
+
+import { LButton } from '.'
 
 const emit = defineEmits<{
   (e: 'onClickOption', option: DropdownOption): void
@@ -28,21 +37,12 @@ withDefaults(
     loading?: boolean
     open?: boolean
     hover?: boolean
-    position?: 'default' | 'dropdown-top' | 'dropdown-bottom' | 'dropdown-end'
-    align?: 'default' | 'dropdown-left' | 'dropdown-right'
-    size?: 'xs' | 'sm' | 'default' | 'lg'
-    shape?: 'default' | 'circle' | 'square'
-    effect?: 'default' | 'glass' | 'ghost' | 'link'
-    severity?:
-      | 'default'
-      | 'primary'
-      | 'secondary'
-      | 'accent'
-      | 'info'
-      | 'success'
-      | 'warning'
-      | 'danger'
-      | 'neutral'
+    position?: PositionDropdown
+    align?: AlignDropdown
+    size?: SizeBase
+    shape?: ShapeBase
+    effect?: Effect
+    severity?: Severity
   }>(),
   {
     widthClass: 'w-52',

@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import type { SizeBase } from '../@types/Props'
 import type { Item } from '../@types/Menu'
 
 import { LSubmenu } from '.'
@@ -11,7 +12,7 @@ withDefaults(
     items: Item[]
     menuClass?: string
     horizontal?: boolean
-    size?: 'default' | 'sm' | 'xs' | 'lg'
+    size?: SizeBase
     shape?: 'default' | 'square'
   }>(),
   {

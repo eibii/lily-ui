@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import type { SizeBase } from '../@types/Props'
+
 type Item = {
   label: string
   labelClass?: string
@@ -13,7 +15,7 @@ withDefaults(
   defineProps<{
     items: Item[]
     iconClass?: string
-    textSize?: 'default' | 'xs' | 'md' | 'lg'
+    textSize?: SizeBase
     lastItemClick?: boolean
   }>(),
   {
@@ -29,9 +31,9 @@ withDefaults(
     :class="[
       'breadcrumbs',
       {
-        'text-sm': $props.textSize === 'default',
+        'text-sm': $props.textSize === 'sm',
         'text-xs': $props.textSize === 'xs',
-        'text-base': $props.textSize === 'md',
+        'text-base': $props.textSize === 'default',
         'text-lg': $props.textSize === 'lg'
       }
     ]"

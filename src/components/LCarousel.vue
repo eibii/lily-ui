@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import type { AlignBase } from '../@types/Props'
+
 defineEmits<{
   (e: 'onItemActive', idx: number): void
 }>()
@@ -8,7 +10,7 @@ withDefaults(
       image: string
       alt: string
     }[]
-    align?: 'default' | 'center' | 'end'
+    align?: AlignBase
     vertical?: boolean
     itemClass?: string
     fullBleed?: boolean

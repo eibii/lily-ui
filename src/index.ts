@@ -44,11 +44,13 @@ import {
   LProgress,
   LRadialProgress,
   LSkeleton,
-  LToast
+  LToast,
+  LCheckbox
 } from './components'
 // standard export with automatic installation
 export default {
   install(app: App): void {
+    // components
     app.component('LButton', LButton)
     app.component('LDropdown', LDropdown)
     app.component('LDropdownCard', LDropdownCard)
@@ -88,11 +90,15 @@ export default {
     app.component('LRadialProgress', LRadialProgress)
     app.component('LSkeleton', LSkeleton)
     app.component('LToast', LToast)
+    app.component('LCheckbox', LCheckbox)
+
+    // directives
     app.directive('tooltip', vTooltip)
   }
 }
 // individual exports
 export {
+  // components
   LButton,
   LDropdown,
   LDropdownCard,
@@ -132,5 +138,7 @@ export {
   LRadialProgress,
   LSkeleton,
   LToast,
+  LCheckbox,
+  // directives
   vTooltip
 }

@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import type { EffectBase } from '../@types/Props'
+
 defineEmits<{
   (e: 'onClose', ev: Event): void
 }>()
@@ -12,7 +14,8 @@ withDefaults(
     hImage?: boolean
     center?: boolean
     imageFull?: boolean
-    effect?: 'default' | 'glass' | 'neutral'
+    effect?: EffectBase
+    severity?: 'default' | 'neutral'
     closable?: boolean
   }>(),
   {
@@ -25,6 +28,7 @@ withDefaults(
     center: false,
     imageFull: false,
     effect: 'default',
+    severity: 'default',
     closable: false
   }
 )
@@ -41,7 +45,7 @@ import { LButton } from '.'
         'card-compact': $props.compact,
         'image-full': $props.imageFull,
         glass: $props.effect === 'glass',
-        'bg-neutral text-neutral-content': $props.effect === 'neutral',
+        'bg-neutral text-neutral-content': $props.severity === 'neutral',
         'card-side': $props.hImage
       }
     ]"

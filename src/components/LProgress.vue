@@ -1,19 +1,12 @@
 <script setup lang="ts">
+import type { Severity } from '../@types/Props'
+
 withDefaults(
   defineProps<{
     value?: number
     max?: number
     widthClass?: string
-    severity?:
-      | 'default'
-      | 'primary'
-      | 'secondary'
-      | 'accent'
-      | 'info'
-      | 'success'
-      | 'warning'
-      | 'danger'
-      | 'neutral'
+    severity?: Severity
   }>(),
   {
     value: undefined,

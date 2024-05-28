@@ -1,15 +1,17 @@
 <script setup lang="ts">
-import type { SizeBase } from '../@types/Props'
+import type { SizeBase, Severity, EffectBase } from '../@types/Props'
 
 withDefaults(
   defineProps<{
     size?: SizeBase
-    effect?: 'default' | 'neutral' | 'primary' | 'secondary' | 'accent' | 'ghost'
+    effect?: EffectBase
+    severity?: Severity
     outline?: boolean
   }>(),
   {
     size: 'default',
     effect: 'default',
+    severity: 'default',
     outline: false
   }
 )
@@ -24,10 +26,10 @@ withDefaults(
         'badge-sm': $props.size === 'sm',
         'badge-md': $props.size === 'default',
         'badge-lg': $props.size === 'lg',
-        'badge-neutral': $props.effect === 'neutral',
-        'badge-primary': $props.effect === 'primary',
-        'badge-secondary': $props.effect === 'secondary',
-        'badge-accent': $props.effect === 'accent',
+        'badge-neutral': $props.severity === 'neutral',
+        'badge-primary': $props.severity === 'primary',
+        'badge-secondary': $props.severity === 'secondary',
+        'badge-accent': $props.severity === 'accent',
         'badge-ghost': $props.effect === 'ghost',
         'badge-outline': $props.outline
       }

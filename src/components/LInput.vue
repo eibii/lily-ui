@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import type { ShapeBase } from '../@types/Props'
 type ModelValue = string | number
 
 import { ref, watch, useAttrs } from 'vue'
@@ -18,7 +19,7 @@ const props = withDefaults(
     disabled?: boolean
     loading?: boolean
     size?: 'xs' | 'sm' | 'default' | 'lg'
-    shape?: 'default' | 'circle' | 'square'
+    shape?: ShapeBase
     effect?: 'default' | 'glass' | 'ghost' | 'neutral' | 'link'
     severity?:
       | 'default'

@@ -1,31 +1,19 @@
 <script setup lang="ts">
-import type {
-  BgClass,
-  Image,
-  Text,
-  TextClass,
-  IconClass,
-  WidthClass,
-  ShapeAvatar,
-  MaskShape,
-  Ring,
-  Online,
-  Offline
-} from '../@types/Props'
+import type { ShapeAvatar } from '../@types/Props'
 
 withDefaults(
   defineProps<{
-    bgClass?: BgClass
-    image?: Image
-    text?: Text
-    textClass?: TextClass
-    iconClass?: IconClass
-    widthClass?: WidthClass
+    bgClass?: string
+    image?: string
+    text?: string
+    textClass?: string
+    iconClass?: string
+    widthClass?: string
     shape?: ShapeAvatar
-    mask?: MaskShape
-    ring?: Ring
-    online?: Online
-    offline?: Offline
+    mask?: string
+    ring?: boolean
+    online?: boolean
+    offline?: boolean
   }>(),
   {
     bgClass: 'bg-neutral',

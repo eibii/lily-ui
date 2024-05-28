@@ -1,11 +1,11 @@
 <script setup lang="ts">
 withDefaults(
   defineProps<{
-    bg?: 'default' | 'primary' | 'secondary' | 'accent' | 'neutral'
+    bgClass?: 'default' | 'primary' | 'secondary' | 'accent' | 'neutral'
     unstyledBg?: boolean
   }>(),
   {
-    bg: 'default',
+    bgClass: 'default',
     unstyledBg: false
   }
 )
@@ -16,15 +16,15 @@ withDefaults(
     :class="[
       'navbar',
       {
-        'bg-base-100 shadow-xl rounded-box': $props.bg === 'default' && !$props.unstyledBg,
+        'bg-base-100 shadow-xl rounded-box': $props.bgClass === 'default' && !$props.unstyledBg,
         'bg-primary text-primary-content shadow-xl rounded-box':
-          $props.bg === 'primary' && !$props.unstyledBg,
+          $props.bgClass === 'primary' && !$props.unstyledBg,
         'bg-secondary text-secondary-content shadow-xl rounded-box':
-          $props.bg === 'secondary' && !$props.unstyledBg,
+          $props.bgClass === 'secondary' && !$props.unstyledBg,
         'bg-accent text-accent-content shadow-xl rounded-box':
-          $props.bg === 'accent' && !$props.unstyledBg,
+          $props.bgClass === 'accent' && !$props.unstyledBg,
         'bg-neutral text-neutral-content shadow-xl rounded-box':
-          $props.bg === 'neutral' && !$props.unstyledBg
+          $props.bgClass === 'neutral' && !$props.unstyledBg
       }
     ]"
   >
