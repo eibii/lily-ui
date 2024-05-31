@@ -2,7 +2,7 @@
 import type { SizeBase } from '../@types/Props'
 
 type Item = {
-  itemClass?: string
+  itemClass?: string 
   iconClass?: string
   title?: string
   active?: boolean

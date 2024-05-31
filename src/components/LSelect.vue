@@ -1,46 +1,46 @@
 <script setup lang="ts">
-import type { ShapeBase, SizeBase, EffectBase, Severity } from '../@types/Props'
-type ModelValue = string | number
+import type { SizeBase, ShapeBase, EffectGhost, Severity, Option } from '../@types/Props'
 
-import { ref, watch, useAttrs, onMounted } from 'vue'
+import { ref, useAttrs, onMounted, watch } from 'vue'
 import * as _ from 'lodash-es'
 
-import BaseInput from './BaseInput.vue'
+import BaseSelect from './BaseSelect.vue'
 
-const emit = defineEmits<{
-  (e: 'update:modelValue', modelValue: ModelValue): void
+defineEmits<{
+  (e: 'update:modelValue', modelValue: Option): void
 }>()
 const props = withDefaults(
   defineProps<{
-    modelValue?: ModelValue
+    modelValue?: Option
     bgClass?: string
     widthClass?: string
     labelUp?: string
     labelUpAlt?: string
     labelDown?: string
-    label?: string
-    icon?: string
-    iconRight?: string
-    outline?: boolean
+    pleaceholder?: string
+    options: Option[]
     disabled?: boolean
+    outline?: boolean
     loading?: boolean
     size?: SizeBase
     shape?: ShapeBase
-    effect?: EffectBase
+    effect?: EffectGhost
     severity?: Severity
   }>(),
   {
-    modelValue: '',
     bgClass: 'bg-base-200',
     widthClass: 'w-full',
+    modelValue: () => ({
+      value: '',
+      label: ''
+    }),
     labelUp: undefined,
     labelUpAlt: undefined,
     labelDown: undefined,
-    label: '',
-    icon: '',
-    iconRight: '',
-    outline: false,
+    pleaceholder: 'Select an option',
+    options: () => [],
     disabled: false,
+    outline: false,
     loading: false,
     size: 'default',
     shape: 'default',
@@ -49,21 +49,22 @@ const props = withDefaults(
   }
 )
 const $attrs = useAttrs()
-const value = ref()
-const onInput = (e: Event) => {
-  const target = e.target as HTMLInputElement
-  emit('update:modelValue', target.value)
+const select = ref('pleaceholder')
+const setSelect = (option: Option) => {
+  if (!_.isUndefined(option.value) && !_.isEmpty(option.value)) {
+    select.value = `${option.value}`
+  }
 }
 
 watch(
   () => props.modelValue,
   (newValue) => {
-    value.value = newValue
+    setSelect(newValue)
   }
 )
 
 onMounted(() => {
-  value.value = props.modelValue
+  setSelect(props.modelValue)
 })
 </script>
 
@@ -79,14 +80,14 @@ onMounted(() => {
       <span v-if="$props.labelUp" class="label-text">{{ $props.labelUp }}</span>
       <span v-if="$props.labelUpAlt" class="label-text-alt">{{ $props.labelUpAlt }}</span>
     </div>
-    <BaseInput
-      v-model="value"
+    <BaseSelect
+      v-model="select"
       :disabled="$props.disabled || $props.loading"
       v-bind="{
         ..._.omit($props, ['modelValue', 'labelUp', 'labelUpAlt', 'labelDown', 'label']),
         ...$attrs
       }"
-      @input="onInput"
+      @update:modelValue="$emit('update:modelValue', $event)"
     >
       <template v-if="$slots.icon" #icon>
         <slot name="icon" />
@@ -94,21 +95,21 @@ onMounted(() => {
       <template v-if="$slots.iconRight" #iconRight>
         <slot name="iconRight" />
       </template>
-    </BaseInput>
+    </BaseSelect>
     <slot v-if="$slots.labelDown" name="labelDown" />
     <div v-else-if="$props.labelDown" class="label">
       <span class="label-text-alt">{{ $props.labelDown }}</span>
     </div>
   </div>
-  <BaseInput
+  <BaseSelect
     v-else
-    v-model="value"
+    v-model="select"
     :disabled="$props.disabled || $props.loading"
     v-bind="{
       ..._.omit($props, ['modelValue', 'labelUp', 'labelUpAlt', 'labelDown', 'label']),
       ...$attrs
     }"
-    @input="onInput"
+    @update:modelValue="$emit('update:modelValue', $event)"
   >
     <template v-if="$slots.icon" #icon>
       <slot name="icon" />
@@ -116,5 +117,5 @@ onMounted(() => {
     <template v-if="$slots.iconRight" #iconRight>
       <slot name="iconRight" />
     </template>
-  </BaseInput>
+  </BaseSelect>
 </template>

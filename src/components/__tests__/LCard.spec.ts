@@ -19,6 +19,7 @@ describe('Card', () => {
       center: false,
       imageFull: false,
       effect: 'default',
+      severity: 'default',
       closable: false
     })
   })
@@ -33,7 +34,8 @@ describe('Card', () => {
         hImage: false,
         center: true,
         imageFull: false,
-        effect: 'neutral',
+        effect: 'ghost',
+        severity: 'neutral',
         closable: true
       }
     })
@@ -54,7 +56,8 @@ describe('Card', () => {
       hImage: false,
       center: true,
       imageFull: false,
-      effect: 'neutral',
+      effect: 'ghost',
+      severity: 'neutral',
       closable: true
     })
   })

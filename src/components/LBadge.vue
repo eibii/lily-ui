@@ -30,6 +30,10 @@ withDefaults(
         'badge-primary': $props.severity === 'primary',
         'badge-secondary': $props.severity === 'secondary',
         'badge-accent': $props.severity === 'accent',
+        'badge-success': $props.severity === 'success',
+        'badge-error': $props.severity === 'warning',
+        'badge-danger': $props.severity === 'danger',
+        'badge-info': $props.severity === 'info',
         'badge-ghost': $props.effect === 'ghost',
         'badge-outline': $props.outline
       }

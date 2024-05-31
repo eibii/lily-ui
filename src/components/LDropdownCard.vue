@@ -13,7 +13,7 @@ withDefaults(
     position?: PositionDropdownCard
     align?: AlignDropdown
     cardClass?: string
-    cardBg?: string
+    cardBgClass?: string
     cardColor?: string
   }>(),
   {
@@ -27,7 +27,7 @@ withDefaults(
     position: 'default',
     align: 'default',
     cardClass: '',
-    cardBg: 'bg-primary',
+    cardBgClass: 'bg-primary',
     cardColor: 'text-primary-content'
   }
 )
@@ -76,7 +76,7 @@ withDefaults(
       :class="[
         'dropdown-content z-[1] card card-compact p-2 shadow',
         $props.widthClass,
-        $props.cardBg,
+        $props.cardBgClass,
         $props.cardColor
       ]"
     >

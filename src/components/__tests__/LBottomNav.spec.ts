@@ -30,7 +30,7 @@ describe('BottomNav', () => {
     expect(wrapper.props()).toEqual({
       items,
       itemsClass: '',
-      size: 'md'
+      size: 'default'
     })
   })
   it('renders a bottom-nav with custom props', () => {

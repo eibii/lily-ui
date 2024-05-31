@@ -13,7 +13,7 @@ const props = withDefaults(
     closeButton?: boolean
     responsive?: boolean
     widthClass?: string
-    unstyledTitle?: boolean
+    unstyledTitle?: boolean 
   }>(),
   {
     closable: true,

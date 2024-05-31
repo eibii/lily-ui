@@ -26,6 +26,8 @@ export type CollapseIcon = 'default' | 'arrow' | 'plus'
 
 export type DefaultMode = 'light' | 'dark'
 
+export type EffectGhost = 'default' | 'ghost'
+
 export type EffectBase = 'default' | 'glass' | 'ghost'
 
 export type Effect = EffectBase | 'link'
@@ -33,6 +35,8 @@ export type Effect = EffectBase | 'link'
 export type LayoutCount = 'default' | 'boxes' | 'labelsUnder'
 
 export type MaskShape = 'default' | 'squircle' | 'hexagon' | 'triangle'
+
+export type Option = { value: string | number; label: string }
 
 export type PositionDropdown = 'default' | 'dropdown-top' | 'dropdown-bottom' | 'dropdown-end'
 
@@ -49,6 +53,8 @@ export type PositionToast =
   | 'bottom-left'
   | 'bottom-center'
   | 'bottom-right'
+
+export type RatingIcon = 'default' | 'heart'
 
 export type SeverityBase = 'default' | 'info' | 'success' | 'warning' | 'danger'
 

@@ -12,7 +12,7 @@ withDefaults(
     align?: AlignDropdown
     iconColor?: string
     cardClass?: string
-    cardBg?: string
+    cardBgClass?: string
     cardColor?: string
   }>(),
   {
@@ -25,7 +25,7 @@ withDefaults(
     align: 'default',
     iconColor: 'text-info',
     cardClass: '',
-    cardBg: 'bg-base-100',
+    cardBgClass: 'bg-base-100',
     cardColor: ''
   }
 )
@@ -80,7 +80,7 @@ withDefaults(
       :class="[
         'dropdown-content z-[1] card card-compact rounded-box shadow',
         $props.widthClass,
-        $props.cardBg,
+        $props.cardBgClass,
         $props.cardColor
       ]"
     >

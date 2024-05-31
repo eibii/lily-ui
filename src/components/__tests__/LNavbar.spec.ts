@@ -11,14 +11,14 @@ describe('Navbar', () => {
     expect(wrapper.find('.navbar').exists()).toBe(true)
     expect(wrapper.find('.bg-base-100').exists()).toBe(true)
     expect(wrapper.props()).toEqual({
-      bg: 'default',
+      bgClass: 'default',
       unstyledBg: false
     })
   })
   it('renders a navbar with custom props', () => {
     const wrapper = mount(Navbar, {
       props: {
-        bg: 'primary',
+        bgClass: 'primary',
         unstyledBg: false
       }
     })
@@ -28,7 +28,7 @@ describe('Navbar', () => {
       true
     )
     expect(wrapper.props()).toEqual({
-      bg: 'primary',
+      bgClass: 'primary',
       unstyledBg: false
     })
   })

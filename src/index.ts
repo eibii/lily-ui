@@ -45,7 +45,13 @@ import {
   LRadialProgress,
   LSkeleton,
   LToast,
-  LCheckbox
+  LCheckbox,
+  LFileInput,
+  LRadio,
+  LRange,
+  LRating,
+  LSelect,
+  LInput
 } from './components'
 // standard export with automatic installation
 export default {
@@ -91,6 +97,12 @@ export default {
     app.component('LSkeleton', LSkeleton)
     app.component('LToast', LToast)
     app.component('LCheckbox', LCheckbox)
+    app.component('LFileInput', LFileInput)
+    app.component('LRadio', LRadio)
+    app.component('LRange', LRange)
+    app.component('LRating', LRating)
+    app.component('LSelect', LSelect)
+    app.component('LInput', LInput)
 
     // directives
     app.directive('tooltip', vTooltip)
@@ -139,6 +151,12 @@ export {
   LSkeleton,
   LToast,
   LCheckbox,
+  LFileInput,
+  LRadio,
+  LRange,
+  LRating,
+  LSelect,
+  LInput,
   // directives
   vTooltip
 }

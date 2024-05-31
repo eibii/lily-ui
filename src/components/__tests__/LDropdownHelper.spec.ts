@@ -10,23 +10,23 @@ describe('DropdownHelper', () => {
 
     expect(wrapper.exists()).toBe(true)
     expect(wrapper.props()).toEqual({
-      width: 'w-64',
-      size: 'xs',
+      widthClass: 'w-64',
+      size: 'default',
       open: false,
       hover: false,
-      position: 'dropdown-end',
-      shape: 'circle',
+      position: 'default',
+      shape: 'default',
       align: 'default',
       iconColor: 'text-info',
       cardClass: '',
-      cardBg: 'bg-base-100',
+      cardBgClass: 'bg-base-100',
       cardColor: ''
     })
   })
   it('renders a dropdown-helper with custom props', () => {
     const wrapper = mount(Dropdown, {
       props: {
-        width: 'w-48',
+        widthClass: 'w-48',
         size: 'lg',
         open: true,
         hover: false,
@@ -35,14 +35,14 @@ describe('DropdownHelper', () => {
         align: 'dropdown-right',
         iconColor: 'text-info',
         cardClass: 'border-2 border-gray-200',
-        cardBg: 'bg-gray-200',
+        cardBgClass: 'bg-gray-200',
         cardColor: 'text-gray-800'
       }
     })
 
     expect(wrapper.find('.dropdown').exists()).toBe(true)
     expect(wrapper.props()).toEqual({
-      width: 'w-48',
+      widthClass: 'w-48',
       size: 'lg',
       open: true,
       hover: false,
@@ -51,7 +51,7 @@ describe('DropdownHelper', () => {
       align: 'dropdown-right',
       iconColor: 'text-info',
       cardClass: 'border-2 border-gray-200',
-      cardBg: 'bg-gray-200',
+      cardBgClass: 'bg-gray-200',
       cardColor: 'text-gray-800'
     })
   })

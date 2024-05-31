@@ -12,6 +12,7 @@ describe('Badge', () => {
     expect(wrapper.props()).toEqual({
       size: 'default',
       effect: 'default',
+      severity: 'default',
       outline: false
     })
   })
@@ -20,16 +21,19 @@ describe('Badge', () => {
       props: {
         size: 'lg',
         effect: 'ghost',
+        severity: 'success',
         outline: true
       }
     })
 
     expect(wrapper.find('.badge').exists()).toBe(true)
     expect(wrapper.find('.badge-outline').exists()).toBe(true)
+    expect(wrapper.find('.badge-success').exists()).toBe(true)
     expect(wrapper.find('.badge-ghost').exists()).toBe(true)
     expect(wrapper.props()).toEqual({
       size: 'lg',
       effect: 'ghost',
+      severity: 'success',
       outline: true
     })
   })

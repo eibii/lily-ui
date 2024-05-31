@@ -18,7 +18,7 @@ describe('Modal', () => {
       closable: true,
       closeButton: true,
       responsive: true,
-      width: '',
+      widthClass: '',
       unstyledTitle: false
     })
   })
@@ -29,7 +29,7 @@ describe('Modal', () => {
         closable: false,
         closeButton: false,
         responsive: false,
-        width: 'w-48',
+        widthClass: 'w-48',
         unstyledTitle: true
       }
     })
@@ -38,7 +38,7 @@ describe('Modal', () => {
       closable: false,
       closeButton: false,
       responsive: false,
-      width: 'w-48',
+      widthClass: 'w-48',
       unstyledTitle: true
     })
     expect(wrapper.find('.modal-backdrop').exists()).toBe(false)
