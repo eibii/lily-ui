@@ -1,16 +1,21 @@
 <script setup lang="ts">
+import type { SocialMenu } from '@/@types/Props'
+
 import { ref } from 'vue'
 
-import { LThemeMode, LInput, LSelect } from './components'
+import { LThemeMode, LFooter } from './components'
 
 import 'bootstrap-icons/font/bootstrap-icons.css'
 
 const value = ref(false)
-const range = ref()
-const options = [
-  { value: '1', label: 'Option 1' },
-  { value: '2', label: 'Option 2' },
-  { value: '3', label: 'Option 3' }
+const range = ref(true)
+const socialMenu: SocialMenu[] = [
+  {
+    link: 'https://twitter.com',
+    target: '_blank',
+    svg: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" class="fill-current"><path d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z"></path></svg>',
+    icon: 'bi bi-twitter'
+  }
 ]
 </script>
 
@@ -25,56 +30,10 @@ const options = [
     <div class="py-10">
       <pre>{{ range }}</pre>
     </div>
-    <div class="flex justify-center gap-3">
-      <LInput
-        iconRight="bi bi-search"
-        placeholder="Digite aqui"
-        label-up="What is your name?"
-        label-up-alt="Top Right label"
-        label-down="Bottom Left label"
-      >
-        <template #icon>
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 16 16"
-            fill="currentColor"
-            class="w-4 h-4 opacity-70"
-          >
-            <path
-              d="M2.5 3A1.5 1.5 0 0 0 1 4.5v.793c.026.009.051.02.076.032L7.674 8.51c.206.1.446.1.652 0l6.598-3.185A.755.755 0 0 1 15 5.293V4.5A1.5 1.5 0 0 0 13.5 3h-11Z"
-            />
-            <path
-              d="M15 6.954 8.978 9.86a2.25 2.25 0 0 1-1.956 0L1 6.954V11.5A1.5 1.5 0 0 0 2.5 13h11a1.5 1.5 0 0 0 1.5-1.5V6.954Z"
-            />
-          </svg>
-        </template>
-      </LInput>
-    </div>
-    <div class="flex justify-center gap-3">
-      <LSelect
-        v-model="range"
-        :options="options"
-        placeholder="Digite aqui"
-        label-up="What is your name?"
-        label-up-alt="Top Right label"
-        label-down="Bottom Left label"
-      >
-        <template #icon>
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 16 16"
-            fill="currentColor"
-            class="w-4 h-4 opacity-70"
-          >
-            <path
-              d="M2.5 3A1.5 1.5 0 0 0 1 4.5v.793c.026.009.051.02.076.032L7.674 8.51c.206.1.446.1.652 0l6.598-3.185A.755.755 0 0 1 15 5.293V4.5A1.5 1.5 0 0 0 13.5 3h-11Z"
-            />
-            <path
-              d="M15 6.954 8.978 9.86a2.25 2.25 0 0 1-1.956 0L1 6.954V11.5A1.5 1.5 0 0 0 2.5 13h11a1.5 1.5 0 0 0 1.5-1.5V6.954Z"
-            />
-          </svg>
-        </template>
-      </LSelect>
-    </div>
+    <LFooter
+      class="p-5 items-center"
+      copyright="Copyright © 2024 - All right reserved by ACME Industries Ltd"
+      :socialMenu="socialMenu"
+    />
   </div>
 </template>

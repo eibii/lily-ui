@@ -51,7 +51,13 @@ import {
   LRange,
   LRating,
   LSelect,
-  LInput
+  LInput,
+  LTextarea,
+  LToggle,
+  LArtboard,
+  LDivider,
+  LDrawer,
+  LFooter
 } from './components'
 // standard export with automatic installation
 export default {
@@ -103,7 +109,12 @@ export default {
     app.component('LRating', LRating)
     app.component('LSelect', LSelect)
     app.component('LInput', LInput)
-
+    app.component('LTextarea', LTextarea)
+    app.component('LToggle', LToggle)
+    app.component('LArtboard', LArtboard)
+    app.component('LDivider', LDivider)
+    app.component('LDrawer', LDrawer)
+    app.component('LFooter', LFooter)
     // directives
     app.directive('tooltip', vTooltip)
   }
@@ -157,6 +168,12 @@ export {
   LRating,
   LSelect,
   LInput,
+  LTextarea,
+  LToggle,
+  LArtboard,
+  LDivider,
+  LDrawer,
+  LFooter,
   // directives
   vTooltip
 }

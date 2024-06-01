@@ -36,7 +36,17 @@ export type LayoutCount = 'default' | 'boxes' | 'labelsUnder'
 
 export type MaskShape = 'default' | 'squircle' | 'hexagon' | 'triangle'
 
+export type SocialMenu = {
+  svg?: string
+  icon?: string
+  label?: string
+  link: string
+  target?: '_blank' | '_self'
+}
+
 export type Option = { value: string | number; label: string }
+
+export type PositionDivider = 'default' | 'start' | 'end'
 
 export type PositionDropdown = 'default' | 'dropdown-top' | 'dropdown-bottom' | 'dropdown-end'
 
@@ -65,6 +75,8 @@ export type SeverityExtend = Severity | 'light' | 'dark' | 'link'
 export type ShapeBase = 'default' | 'rounded' | 'circle' | 'square'
 
 export type ShapeAvatar = ShapeBase | 'sm' | 'md' | 'lg' | 'xl' | '2xl' | '3xl'
+
+export type SizeArtboard = 'phone1' | 'phone2' | 'phone3' | 'phone4' | 'phone5' | 'phone6'
 
 export type SizeBase = 'default' | 'xs' | 'sm' | 'lg'
 
