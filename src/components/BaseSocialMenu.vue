@@ -5,9 +5,11 @@ withDefaults(
   defineProps<{
     socialMenuTitle?: string
     socialMenu: SocialMenu[]
+    center?: boolean
   }>(),
   {
-    socialMenuTitle: ''
+    socialMenuTitle: '',
+    center: false
   }
 )
 </script>
@@ -15,7 +17,14 @@ withDefaults(
 <template>
   <nav v-if="$props.socialMenu && $props.socialMenuTitle">
     <h6 v-if="socialMenuTitle" class="footer-title">{{ $props.socialMenuTitle }}</h6>
-    <div class="grid-flow-col gap-4 md:place-self-center md:justify-self-end">
+    <div
+      :class="[
+        'grid grid-flow-col gap-4 ',
+        {
+          'md:place-self-center md:justify-self-end': !$props.center
+        }
+      ]"
+    >
       <template v-for="menu in $props.socialMenu" :key="menu">
         <a class="flex gap-2" :href="menu.link" v-bind="menu.target ? { target: menu.target } : {}">
           <span v-if="menu.svg" v-html="menu.svg" />
@@ -25,7 +34,15 @@ withDefaults(
       </template>
     </div>
   </nav>
-  <nav v-else class="grid-flow-col gap-4 md:place-self-center md:justify-self-end">
+  <nav
+    v-else
+    :class="[
+      'grid grid-flow-col gap-4 ',
+      {
+        'md:place-self-center md:justify-self-end': !$props.center
+      }
+    ]"
+  >
     <template v-for="menu in $props.socialMenu" :key="menu">
       <a class="flex gap-2" :href="menu.link" v-bind="menu.target ? { target: menu.target } : {}">
         <span v-if="menu.svg" v-html="menu.svg" />

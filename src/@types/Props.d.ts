@@ -32,27 +32,45 @@ export type EffectBase = 'default' | 'glass' | 'ghost'
 
 export type Effect = EffectBase | 'link'
 
+export type FooterLogo = {
+  svg?: string
+  imageSrc?: string
+  imageClass?: string
+  imageAlt?: string
+  logoHover?: boolean
+  textHtml?: string
+}
+
+export type FooterNewsletter = {
+  title?: string
+  label: string
+  placeholder?: string
+  btnText: string
+  btnIcon?: string
+  onSubmit: (email: string) => void
+}
+
 export type LayoutCount = 'default' | 'boxes' | 'labelsUnder'
 
 export type MaskShape = 'default' | 'squircle' | 'hexagon' | 'triangle'
 
-export type SocialMenu = {
+export type Menu = {
   svg?: string
   icon?: string
   label?: string
-  link: string
+  link?: string
   target?: '_blank' | '_self'
+  to?: any
+}
+
+export type ColMenu = {
+  title?: string
+  menus: Menu[]
 }
 
 export type Option = { value: string | number; label: string }
 
-export type PositionDivider = 'default' | 'start' | 'end'
-
-export type PositionDropdown = 'default' | 'dropdown-top' | 'dropdown-bottom' | 'dropdown-end'
-
-export type PositionDropdownCard = 'default' | 'dropdown-top' | 'dropdown-bottom' | 'dropdown-end'
-
-export type PositionToast =
+export type PositionBase =
   | 'default'
   | 'top-left'
   | 'top-center'
@@ -63,6 +81,12 @@ export type PositionToast =
   | 'bottom-left'
   | 'bottom-center'
   | 'bottom-right'
+
+export type PositionDivider = 'default' | 'start' | 'end'
+
+export type PositionDropdown = 'default' | 'dropdown-top' | 'dropdown-bottom' | 'dropdown-end'
+
+export type PositionDropdownCard = 'default' | 'dropdown-top' | 'dropdown-bottom' | 'dropdown-end'
 
 export type RatingIcon = 'default' | 'heart'
 
@@ -79,6 +103,14 @@ export type ShapeAvatar = ShapeBase | 'sm' | 'md' | 'lg' | 'xl' | '2xl' | '3xl'
 export type SizeArtboard = 'phone1' | 'phone2' | 'phone3' | 'phone4' | 'phone5' | 'phone6'
 
 export type SizeBase = 'default' | 'xs' | 'sm' | 'lg'
+
+export type SocialMenu = {
+  svg?: string
+  icon?: string
+  label?: string
+  link: string
+  target?: '_blank' | '_self'
+}
 
 export type TypeLoading = 'default' | 'dots' | 'ring' | 'ball' | 'bars' | 'infinity'
 

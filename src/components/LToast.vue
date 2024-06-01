@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { SeverityBase, PositionToast } from '../@types/Props'
+import type { SeverityBase, PositionBase } from '../@types/Props'
 
 import LAlert from './LAlert.vue'
 
@@ -9,7 +9,7 @@ withDefaults(
     title?: string
     iconClass?: string
     severity?: SeverityBase
-    position?: PositionToast
+    position?: PositionBase
   }>(),
   {
     title: '',

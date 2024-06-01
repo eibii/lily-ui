@@ -57,7 +57,10 @@ import {
   LArtboard,
   LDivider,
   LDrawer,
-  LFooter
+  LFooter,
+  LHero,
+  LIndicator,
+  LJoin
 } from './components'
 // standard export with automatic installation
 export default {
@@ -115,6 +118,9 @@ export default {
     app.component('LDivider', LDivider)
     app.component('LDrawer', LDrawer)
     app.component('LFooter', LFooter)
+    app.component('LHero', LHero)
+    app.component('LIndicator', LIndicator)
+    app.component('LJoin', LJoin)
     // directives
     app.directive('tooltip', vTooltip)
   }
@@ -174,6 +180,9 @@ export {
   LDivider,
   LDrawer,
   LFooter,
+  LHero,
+  LIndicator,
+  LJoin,
   // directives
   vTooltip
 }
