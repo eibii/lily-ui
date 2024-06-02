@@ -1,12 +1,11 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 
-import { LThemeMode, LMWindow } from './components'
+import { LThemeMode, LJoin, LJoinItem } from './components'
 
 import 'bootstrap-icons/font/bootstrap-icons.css'
 
 const value = ref(false)
-const range = ref(true)
 </script>
 
 <template>
@@ -17,16 +16,18 @@ const range = ref(true)
         <LThemeMode v-model="value" default-mode="light" width-class="w-8" height-class="h-8" />
       </div>
     </div>
-    <div class="py-10">
-      <pre>{{ range }}</pre>
-    </div>
     <div class="flex-1">
-      <LMWindow
-        bg-class="border bg-base-300"
-        content-class="flex justify-center px-4 py-16 bg-base-200"
-      >
-        Hello!
-      </LMWindow>
+      <LJoin>
+        <LJoinItem>
+          <button class="btn join-item">Button</button>
+        </LJoinItem>
+        <LJoinItem>
+          <button class="btn join-item">Button</button>
+        </LJoinItem>
+        <LJoinItem>
+          <button class="btn join-item">Button</button>
+        </LJoinItem>
+      </LJoin>
     </div>
   </div>
 </template>

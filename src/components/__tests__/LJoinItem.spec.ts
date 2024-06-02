@@ -8,9 +8,10 @@ describe('JoinItem', () => {
   it('renders default slot', () => {
     const wrapper = mount(JoinItem, {
       slots: {
-        default: '<div>Slot default</div>'
+        default: '<div class="teste">Slot default</div>'
       }
     })
+
     expect(wrapper.find('.join-item').exists()).toBe(true)
     expect(wrapper.text()).toContain('Slot default')
   })

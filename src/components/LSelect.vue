@@ -30,15 +30,11 @@ const props = withDefaults(
   {
     bgClass: 'bg-base-200',
     widthClass: 'w-full',
-    modelValue: () => ({
-      value: '',
-      label: ''
-    }),
+    modelValue: undefined,
     labelUp: undefined,
     labelUpAlt: undefined,
     labelDown: undefined,
     pleaceholder: 'Select an option',
-    options: () => [],
     disabled: false,
     outline: false,
     loading: false,
@@ -49,10 +45,12 @@ const props = withDefaults(
   }
 )
 const $attrs = useAttrs()
-const select = ref('pleaceholder')
-const setSelect = (option: Option) => {
-  if (!_.isUndefined(option.value) && !_.isEmpty(option.value)) {
+const select = ref()
+const setSelect = (option: Option | undefined) => {
+  if (option && !_.isUndefined(option.value) && !_.isEmpty(option.value)) {
     select.value = `${option.value}`
+  } else if (_.isUndefined(option)) {
+    select.value = option
   }
 }
 
@@ -83,8 +81,9 @@ onMounted(() => {
     <BaseSelect
       v-model="select"
       :disabled="$props.disabled || $props.loading"
+      :options="$props.options"
       v-bind="{
-        ..._.omit($props, ['modelValue', 'labelUp', 'labelUpAlt', 'labelDown', 'label']),
+        ..._.omit($props, ['modelValue', 'options', 'labelUp', 'labelUpAlt', 'labelDown', 'label']),
         ...$attrs
       }"
       @update:modelValue="$emit('update:modelValue', $event)"
@@ -105,8 +104,9 @@ onMounted(() => {
     v-else
     v-model="select"
     :disabled="$props.disabled || $props.loading"
+    :options="$props.options"
     v-bind="{
-      ..._.omit($props, ['modelValue', 'labelUp', 'labelUpAlt', 'labelDown', 'label']),
+      ..._.omit($props, ['modelValue', 'options', 'labelUp', 'labelUpAlt', 'labelDown', 'label']),
       ...$attrs
     }"
     @update:modelValue="$emit('update:modelValue', $event)"

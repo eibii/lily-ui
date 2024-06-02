@@ -1,14 +1,16 @@
-import { describe, it, expect } from 'vitest'
+import type { Option } from '../../@types/Props'
 
+import { describe, it, expect } from 'vitest'
 import { mount } from '@vue/test-utils'
 
 import Select from '../LSelect.vue'
 
 describe('Select', () => {
-  const options = [
-    { value: '1', label: 'Option 1' },
-    { value: '2', label: 'Option 2' },
-    { value: '3', label: 'Option 3' }
+  const option: Option = { value: 3, label: 'Option 3' }
+  const options: Option[] = [
+    { value: 1, label: 'Option 1' },
+    { value: 2, label: 'Option 2' },
+    { value: 3, label: 'Option 3' }
   ]
 
   it('renders a select with default props', () => {
@@ -20,10 +22,7 @@ describe('Select', () => {
 
     expect(wrapper.find('.select').exists()).toBe(true)
     expect(wrapper.props()).toEqual({
-      modelValue: {
-        value: '',
-        label: ''
-      },
+      modelValue: undefined,
       bgClass: 'bg-base-200',
       widthClass: 'w-full',
       labelUp: undefined,
@@ -44,9 +43,9 @@ describe('Select', () => {
   it('renders a select with custom props', () => {
     const wrapper = mount(Select, {
       props: {
+        modelValue: option,
         bgClass: 'bg-base-500',
         widthClass: 'w-full',
-        modelValue: { value: '2', label: 'Option 2' },
         labelUp: 'Pick a file',
         labelUpAlt: undefined,
         labelDown: undefined,
@@ -69,9 +68,9 @@ describe('Select', () => {
     expect(wrapper.find('.select-ghost').exists()).toBe(true)
     expect(wrapper.text()).toContain('Pick a file')
     expect(wrapper.props()).toEqual({
+      modelValue: option,
       bgClass: 'bg-base-500',
       widthClass: 'w-full',
-      modelValue: { value: '2', label: 'Option 2' },
       labelUp: 'Pick a file',
       labelUpAlt: undefined,
       labelDown: undefined,
@@ -89,6 +88,9 @@ describe('Select', () => {
 
   it('renders a select with label slot', () => {
     const wrapper = mount(Select, {
+      props: {
+        options
+      },
       slots: {
         labelUp: '<div>Slot label up</div>',
         labelDown: '<div>Slot label down</div>'

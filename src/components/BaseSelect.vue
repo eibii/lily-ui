@@ -33,7 +33,6 @@ const props = withDefaults(
     icon: '',
     iconRight: '',
     pleaceholder: 'Select an option',
-    options: () => [],
     disabled: false,
     outline: false,
     loading: false,

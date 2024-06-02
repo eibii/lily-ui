@@ -12,7 +12,8 @@ describe('Artboard', () => {
     expect(wrapper.props()).toEqual({
       bgClass: 'artboard-demo',
       size: 'phone1',
-      horizontal: false
+      horizontal: false,
+      screenSize: true
     })
   })
 
@@ -21,7 +22,8 @@ describe('Artboard', () => {
       props: {
         bgClass: 'bg-base-200',
         size: 'phone3',
-        horizontal: true
+        horizontal: true,
+        screenSize: true
       }
     })
 
@@ -32,7 +34,8 @@ describe('Artboard', () => {
     expect(wrapper.props()).toEqual({
       bgClass: 'bg-base-200',
       size: 'phone3',
-      horizontal: true
+      horizontal: true,
+      screenSize: true
     })
   })
 })

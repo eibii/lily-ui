@@ -1,34 +1,20 @@
 <script setup lang="ts">
-import { onBeforeMount } from 'vue'
+import { ref, onMounted } from 'vue'
+import * as _ from 'lodash-es'
 
-const $slots = defineSlots()
+const item = ref<HTMLElement | null>(null)
 
-onBeforeMount(() => {
-  let [el] = $slots.default()
-
-  if (el && el?.props?.class) {
-    if (el.props.class && el.props.class.search('join-item') !== -1) return
-
-    el.props = {
-      ...el.props,
-      class: `${el.props.class} join-item`
-    }
-  } else if (el && el?.props) {
-    el.props = {
-      ...el.props,
-      class: 'join-item'
-    }
-  } else if (el) {
-    el = {
-      ...el,
-      props: {
-        class: 'join-item'
-      }
-    }
+onMounted(() => {
+  if (item.value) {
+    _.map(item.value.children, (el: HTMLElement) => {
+      el.classList.add('join-item')
+    })
   }
 })
 </script>
 
 <template>
-  <slot />
+  <div ref="item">
+    <slot />
+  </div>
 </template>

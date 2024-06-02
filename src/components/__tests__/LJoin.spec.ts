@@ -3,6 +3,7 @@ import { describe, it, expect } from 'vitest'
 import { mount } from '@vue/test-utils'
 
 import Join from '../LJoin.vue'
+import JoinItem from '../LJoinItem.vue'
 
 describe('Join', () => {
   it('renders a join with default props', () => {
@@ -30,8 +31,13 @@ describe('Join', () => {
 
   it('renders default slot', () => {
     const wrapper = mount(Join, {
+      global: {
+        components: {
+          JoinItem
+        }
+      },
       slots: {
-        default: '<div>Slot default</div>'
+        default: '<join-item>Slot default</join-item>'
       }
     })
     expect(wrapper.text()).toContain('Slot default')
