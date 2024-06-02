@@ -60,7 +60,12 @@ import {
   LFooter,
   LHero,
   LIndicator,
-  LJoin
+  LJoin,
+  LJoinItem,
+  LImgShape,
+  LStack,
+  LStackItem,
+  LMBrowser
 } from './components'
 // standard export with automatic installation
 export default {
@@ -121,6 +126,11 @@ export default {
     app.component('LHero', LHero)
     app.component('LIndicator', LIndicator)
     app.component('LJoin', LJoin)
+    app.component('LJoinItem', LJoinItem)
+    app.component('LImgShape', LImgShape)
+    app.component('LStack', LStack)
+    app.component('LStackItem', LStackItem)
+    app.component('LMBrowser', LMBrowser)
     // directives
     app.directive('tooltip', vTooltip)
   }
@@ -183,6 +193,11 @@ export {
   LHero,
   LIndicator,
   LJoin,
+  LJoinItem,
+  LImgShape,
+  LStack,
+  LStackItem,
+  LMBrowser,
   // directives
   vTooltip
 }

@@ -100,6 +100,27 @@ export type ShapeBase = 'default' | 'rounded' | 'circle' | 'square'
 
 export type ShapeAvatar = ShapeBase | 'sm' | 'md' | 'lg' | 'xl' | '2xl' | '3xl'
 
+export type ShapeImage =
+  | 'default'
+  | 'squircle'
+  | 'heart'
+  | 'hexagon'
+  | 'hexagon2'
+  | 'decagon'
+  | 'pentagon'
+  | 'diamond'
+  | 'circle'
+  | 'parallelogram'
+  | 'parallelogram2'
+  | 'parallelogram3'
+  | 'parallelogram4'
+  | 'star'
+  | 'star2'
+  | 'triangle'
+  | 'triangle2'
+  | 'triangle3'
+  | 'triangle4'
+
 export type SizeArtboard = 'phone1' | 'phone2' | 'phone3' | 'phone4' | 'phone5' | 'phone6'
 
 export type SizeBase = 'default' | 'xs' | 'sm' | 'lg'
@@ -111,6 +132,8 @@ export type SocialMenu = {
   link: string
   target?: '_blank' | '_self'
 }
+
+export type StyleContentBorder = 'default' | 'border' | 'shadow'
 
 export type TypeLoading = 'default' | 'dots' | 'ring' | 'ball' | 'bars' | 'infinity'
 

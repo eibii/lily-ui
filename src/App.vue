@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 
-import { LThemeMode, LJoin } from './components'
+import { LThemeMode, LMBrowser } from './components'
 
 import 'bootstrap-icons/font/bootstrap-icons.css'
 
@@ -21,13 +21,7 @@ const range = ref(true)
       <pre>{{ range }}</pre>
     </div>
     <div class="flex-1">
-      <LJoin vertical>
-        <template #default="{ joinClass }">
-          <button :class="['btn', joinClass]">Button</button>
-          <button :class="['btn', joinClass]">Button</button>
-          <button :class="['btn', joinClass]">Button</button>
-        </template>
-      </LJoin>
+      <LMBrowser> Hello! </LMBrowser>
     </div>
   </div>
 </template>

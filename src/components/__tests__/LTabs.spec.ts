@@ -7,11 +7,7 @@ import LTab from '../LTab.vue'
 
 describe('Tabs', () => {
   it('renders a tabs with default props', () => {
-    const wrapper = mount(Tabs, {
-      slots: {
-        default: '<div>Slot default</div>'
-      }
-    })
+    const wrapper = mount(Tabs)
 
     expect(wrapper.find('.tabs').exists()).toBe(true)
     expect(wrapper.props()).toEqual({

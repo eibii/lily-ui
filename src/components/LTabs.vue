@@ -22,6 +22,7 @@ const $slots = defineSlots()
 const tab = ref(0)
 const tabsId = self.crypto.randomUUID()
 const tabs = computed(() => {
+  if (!$slots.default) return []
   let i = 0
   return $slots.default().reduce((tabs: any[], child: any) => {
     if (child.type.__name === 'LTab') {
