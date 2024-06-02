@@ -8,11 +8,13 @@ withDefaults(
     bgClass?: string
     size?: SizeArtboard
     horizontal?: boolean
+    screenSize?: boolean
   }>(),
   {
     bgClass: 'artboard-demo',
     size: 'phone1',
-    horizontal: false
+    horizontal: false,
+    screenSize: true
   }
 )
 
@@ -44,10 +46,11 @@ const sizes: {
       }
     ]"
   >
-    {{
+    <slot v-if="$slots.default" />
+    <span v-else-if="$props.screenSize">{{
       $props.horizontal
         ? _.join(_.reverse(sizes[$props.size as SizeArtboard]), 'x')
         : _.join(sizes[$props.size as SizeArtboard], 'x')
-    }}
+    }}</span>
   </div>
 </template>

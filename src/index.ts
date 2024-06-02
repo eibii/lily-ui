@@ -65,7 +65,10 @@ import {
   LImgShape,
   LStack,
   LStackItem,
-  LMBrowser
+  LMBrowser,
+  LMCode,
+  LMPhone,
+  LMWindow
 } from './components'
 // standard export with automatic installation
 export default {
@@ -131,6 +134,9 @@ export default {
     app.component('LStack', LStack)
     app.component('LStackItem', LStackItem)
     app.component('LMBrowser', LMBrowser)
+    app.component('LMCode', LMCode)
+    app.component('LMPhone', LMPhone)
+    app.component('LMWindow', LMWindow)
     // directives
     app.directive('tooltip', vTooltip)
   }
@@ -198,6 +204,9 @@ export {
   LStack,
   LStackItem,
   LMBrowser,
+  LMCode,
+  LMPhone,
+  LMWindow,
   // directives
   vTooltip
 }

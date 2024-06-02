@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 
-import { LThemeMode, LMBrowser } from './components'
+import { LThemeMode, LMWindow } from './components'
 
 import 'bootstrap-icons/font/bootstrap-icons.css'
 
@@ -21,7 +21,12 @@ const range = ref(true)
       <pre>{{ range }}</pre>
     </div>
     <div class="flex-1">
-      <LMBrowser> Hello! </LMBrowser>
+      <LMWindow
+        bg-class="border bg-base-300"
+        content-class="flex justify-center px-4 py-16 bg-base-200"
+      >
+        Hello!
+      </LMWindow>
     </div>
   </div>
 </template>

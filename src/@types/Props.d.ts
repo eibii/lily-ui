@@ -24,6 +24,13 @@ export type AspectBase =
 
 export type CollapseIcon = 'default' | 'arrow' | 'plus'
 
+export type Command = {
+  code: string
+  prefix?: string
+  severity?: SeverityBase
+  severityBg?: boolean
+}
+
 export type DefaultMode = 'light' | 'dark'
 
 export type EffectGhost = 'default' | 'ghost'
