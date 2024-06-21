@@ -28,9 +28,9 @@ withDefaults(
     <div v-if="$slots.avatar" class="chat-image">
       <slot name="avatar" />
     </div>
-    <div v-if="$slots.header" class="chat-header">
+    <div v-if="$slots.header || $props.headerTime" class="chat-header">
       <slot name="header" />
-      <time v-if="$props.headerTime" class="text-xs opacity-50">{{ $props.headerTime }}</time>
+      <time v-if="$props.headerTime" class="ml-1 text-xs opacity-50">{{ $props.headerTime }}</time>
     </div>
     <div
       :class="[

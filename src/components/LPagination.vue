@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { SizeBase, SeverityBase, Effect, ShapeBase } from '../@types/Props'
+import type { SizeBase, SeverityBase, Effect, EffectBase, ShapeBase } from '../@types/Props'
 
 type ListTemplate =
   | 'FirstPageLink'
@@ -489,7 +489,7 @@ onBeforeMount(() => {
         widthClass="w-16"
         :size="$props.size"
         :shape="$props.shape"
-        :effect="$props.effect"
+        :effect="$props.effect === 'link' ? 'default' : $props.effect"
         :severity="$props.severity"
       />
     </div>

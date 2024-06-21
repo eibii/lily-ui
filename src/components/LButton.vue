@@ -78,7 +78,7 @@ withDefaults(
       <span class="flex-none self-center loading loading-spinner" />
       <span v-if="$props.loadingText" class="flex-1 self-center">{{ $props.loadingText }}</span>
     </div>
-    <div v-else>
+    <div class="flex gap-2" v-else>
       <i v-if="$props.icon" :class="$props.icon" />
       <span v-if="$props.label">{{ $props.label }}</span>
       <span v-else-if="$slots.default"><slot /></span>
