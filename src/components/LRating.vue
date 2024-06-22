@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { SizeBase, RatingIcon } from '@/@types/Props'
+import type { SizeBase, RatingIcon } from '../@types/Props'
 
 import { ref, useAttrs, watch, onBeforeMount } from 'vue'
 

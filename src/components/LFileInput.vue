@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { Severity, EffectGhost, SizeBase } from '@/@types/Props'
+import type { Severity, EffectGhost, SizeBase } from '../@types/Props'
 
 import { useAttrs } from 'vue'
 
