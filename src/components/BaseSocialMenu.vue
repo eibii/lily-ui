@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { SocialMenu } from '@/@types/Props'
+import type { SocialMenu } from '../@types/Props'
 
 withDefaults(
   defineProps<{

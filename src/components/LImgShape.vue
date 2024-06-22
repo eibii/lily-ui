@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { ShapeImage } from '@/@types/Props'
+import type { ShapeImage } from '../@types/Props'
 
 import { useAttrs } from 'vue'
 

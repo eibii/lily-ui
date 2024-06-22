@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { Severity, SizeBase } from '@/@types/Props'
+import type { Severity, SizeBase } from '../@types/Props'
 type ModelValue = any[] | boolean
 
 import { ref, watch, useAttrs, onMounted } from 'vue'

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { ColMenu, Menu } from '@/@types/Props'
+import type { ColMenu, Menu } from '../@types/Props'
 
 const emit = defineEmits<{
   (e: 'onClick', menu: Menu): void

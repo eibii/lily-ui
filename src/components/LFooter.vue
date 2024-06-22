@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { SocialMenu, ColMenu, Menu, FooterLogo, FooterNewsletter } from '@/@types/Props'
+import type { SocialMenu, ColMenu, Menu, FooterLogo, FooterNewsletter } from '../@types/Props'
 
 import { ref } from 'vue'
 import { BaseSocialMenu, BaseMenu, LInput, LButton } from './'
