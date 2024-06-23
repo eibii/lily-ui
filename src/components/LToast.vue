@@ -1,8 +1,12 @@
 <script setup lang="ts">
+import { onMounted } from 'vue'
 import type { SeverityBase, PositionBase } from '../@types/Props'
 
 import LAlert from './LAlert.vue'
 
+const emit = defineEmits<{
+  (e: 'onClose'): void
+}>()
 withDefaults(
   defineProps<{
     message: string
@@ -18,6 +22,12 @@ withDefaults(
     position: 'default'
   }
 )
+
+onMounted(() => {
+  setTimeout(() => {
+    emit('onClose')
+  }, 3000)
+})
 </script>
 
 <template>
