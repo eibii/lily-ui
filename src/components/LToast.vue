@@ -5,7 +5,7 @@ import LAlert from './LAlert.vue'
 
 withDefaults(
   defineProps<{
-    label: string
+    message: string
     title?: string
     iconClass?: string
     severity?: SeverityBase
@@ -40,7 +40,7 @@ withDefaults(
     <LAlert
       :iconClass="$props.iconClass"
       :title="$props.title"
-      :label="$props.label"
+      :message="$props.message"
       :severity="$props.severity"
     >
       <slot />

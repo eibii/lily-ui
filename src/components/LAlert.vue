@@ -6,13 +6,13 @@ import { ref, onBeforeMount } from 'vue'
 const props = withDefaults(
   defineProps<{
     title?: string
-    label?: string
+    message?: string
     iconClass?: string
     severity?: SeverityBase
   }>(),
   {
     title: '',
-    label: '',
+    message: '',
     iconClass: '',
     severity: 'default'
   }
@@ -55,9 +55,9 @@ onBeforeMount(() => {
         }
       ]"
     />
-    <span v-if="$props.label || $props.title" class="flex flex-col">
+    <span v-if="$props.message || $props.title" class="flex flex-col">
       <span v-if="$props.title" class="text-lg">{{ $props.title }}</span>
-      <span v-if="$props.label">{{ $props.label }}</span>
+      <span v-if="$props.message">{{ $props.message }}</span>
     </span>
     <slot />
   </div>
