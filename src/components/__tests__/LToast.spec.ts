@@ -8,13 +8,13 @@ describe('Toast', () => {
   it('renders a toast with default props', () => {
     const wrapper = mount(Toast, {
       props: {
-        label: 'Text label'
+        message: 'Text message'
       }
     })
 
     expect(wrapper.find('.toast').exists()).toBe(true)
     expect(wrapper.props()).toEqual({
-      label: 'Text label',
+      message: 'Text message',
       title: '',
       iconClass: undefined,
       severity: 'default',
@@ -26,7 +26,7 @@ describe('Toast', () => {
     const wrapper = mount(Toast, {
       props: {
         title: 'Text title',
-        label: 'Text label',
+        message: 'Text message',
         iconClass: 'bi bi-exclamation-triangle-fill',
         severity: 'warning',
         position: 'top-center'
@@ -35,13 +35,13 @@ describe('Toast', () => {
 
     expect(wrapper.find('.toast').exists()).toBe(true)
     expect(wrapper.text()).toContain('Text title')
-    expect(wrapper.text()).toContain('Text label')
+    expect(wrapper.text()).toContain('Text message')
     expect(wrapper.find('.bi.bi-exclamation-triangle-fill').exists()).toBe(true)
     expect(wrapper.find('.alert-warning').exists()).toBe(true)
     expect(wrapper.find('.toast-top.toast-center').exists()).toBe(true)
     expect(wrapper.props()).toEqual({
       title: 'Text title',
-      label: 'Text label',
+      message: 'Text message',
       iconClass: 'bi bi-exclamation-triangle-fill',
       severity: 'warning',
       position: 'top-center'
@@ -51,7 +51,7 @@ describe('Toast', () => {
   it('renders a toast with default slot', () => {
     const wrapper = mount(Toast, {
       props: {
-        label: 'Text label'
+        message: 'Text message'
       },
       slots: {
         default: '<div>Slot default</div>'

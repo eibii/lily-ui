@@ -11,7 +11,7 @@ describe('Alert', () => {
     expect(wrapper.find('.alert').exists()).toBe(true)
     expect(wrapper.props()).toEqual({
       title: '',
-      label: '',
+      message: '',
       iconClass: '',
       severity: 'default'
     })
@@ -21,7 +21,7 @@ describe('Alert', () => {
     const wrapper = mount(Alert, {
       props: {
         title: 'Text title',
-        label: 'Text label',
+        message: 'Text message',
         iconClass: 'bi bi-exclamation-triangle-fill',
         severity: 'warning'
       }
@@ -29,12 +29,12 @@ describe('Alert', () => {
 
     expect(wrapper.find('.alert').exists()).toBe(true)
     expect(wrapper.text()).toContain('Text title')
-    expect(wrapper.text()).toContain('Text label')
+    expect(wrapper.text()).toContain('Text message')
     expect(wrapper.find('.bi.bi-exclamation-triangle-fill').exists()).toBe(true)
     expect(wrapper.find('.alert-warning').exists()).toBe(true)
     expect(wrapper.props()).toEqual({
       title: 'Text title',
-      label: 'Text label',
+      message: 'Text message',
       iconClass: 'bi bi-exclamation-triangle-fill',
       severity: 'warning'
     })
