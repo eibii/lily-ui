@@ -1,3 +1,10 @@
+# [1.1.0](https://github.com/eibii/lily-ui/compare/v1.0.0...v1.1.0) (2024-06-23)
+
+
+### Features
+
+* Atualiza componentes LAlert e LToast para usar a prop "message" em vez de "label" ([2f9f37d](https://github.com/eibii/lily-ui/commit/2f9f37dc49fd20fa147c0e0a1bd551ded8884559))
+
 # Changelog
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
