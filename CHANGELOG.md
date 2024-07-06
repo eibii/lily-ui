@@ -1,3 +1,12 @@
+# [1.3.0](https://github.com/eibii/lily-ui/compare/v1.2.0...v1.3.0) (2024-07-06)
+
+
+### Features
+
+* Update LModal to generate unique modalId using lodash-es ([41a83c2](https://github.com/eibii/lily-ui/commit/41a83c2e55412cdb00c777129a57d8ef7efe43ae))
+* Update LModal to generate unique modalId using lodash-es ([802c27d](https://github.com/eibii/lily-ui/commit/802c27d2b17f6ca456ace5141fb482d665889a34))
+* Update LModal to generate unique modalId using lodash-es ([4bc4e97](https://github.com/eibii/lily-ui/commit/4bc4e97ac071585a28c8ce66e4e4c8a5e36d12d4))
+
 # Changelog
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
