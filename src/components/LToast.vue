@@ -1,33 +1,28 @@
 <script setup lang="ts">
-import { onMounted } from 'vue'
 import type { SeverityBase, PositionBase } from '../@types/Props'
+type Message = {
+  message: string
+  title?: string
+  iconClass?: string
+  severity?: SeverityBase
+  duration?: number
+}
 
 import LAlert from './LAlert.vue'
 
-const emit = defineEmits<{
-  (e: 'onClose'): void
+defineEmits<{
+  (e: 'onClose', message: Message): void
 }>()
 withDefaults(
   defineProps<{
-    message: string
-    title?: string
-    iconClass?: string
-    severity?: SeverityBase
+    messages?: Message[]
     position?: PositionBase
   }>(),
   {
-    title: '',
-    iconClass: undefined,
-    severity: 'default',
+    messages: () => [],
     position: 'default'
   }
 )
-
-onMounted(() => {
-  setTimeout(() => {
-    emit('onClose')
-  }, 3000)
-})
 </script>
 
 <template>
@@ -47,13 +42,15 @@ onMounted(() => {
       }
     ]"
   >
-    <LAlert
-      :iconClass="$props.iconClass"
-      :title="$props.title"
-      :message="$props.message"
-      :severity="$props.severity"
-    >
-      <slot />
-    </LAlert>
+    <tempate v-for="message in $props.messages" :key="message">
+      <LAlert
+        :iconClass="message.iconClass"
+        :title="message.title"
+        :message="message.message"
+        :severity="message.severity"
+        :duration="message.duration || 3000"
+        @onClose="$emit('onClose', message)"
+      />
+    </tempate>
   </div>
 </template>
