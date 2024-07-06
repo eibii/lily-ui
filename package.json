@@ -59,6 +59,7 @@
   "dependencies": {
     "@vueuse/core": "^10.9.0",
     "bootstrap-icons": "^1.11.3",
+    "lodash-es": "^4.17.21",
     "tailwindcss-animated": "^1.0.1",
     "vue": "^3.4.21"
   },
