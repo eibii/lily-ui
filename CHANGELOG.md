@@ -1,3 +1,10 @@
+# [1.4.0](https://github.com/eibii/lily-ui/compare/v1.3.0...v1.4.0) (2024-07-06)
+
+
+### Features
+
+* Add lodash-es as a dependency ([ea08b88](https://github.com/eibii/lily-ui/commit/ea08b889b853c135a0a1d7d4edd2c3e340c83ff9))
+
 # Changelog
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
