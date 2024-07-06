@@ -72,7 +72,6 @@ withDefaults(
       }
     ]"
     :disabled="$props.disabled || $props.loading"
-    v-bind="$attrs"
   >
     <div v-if="$props.loading" data-loading class="flex gap-2">
       <span class="flex-none self-center loading loading-spinner" />
