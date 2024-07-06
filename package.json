@@ -1,6 +1,6 @@
 {
   "name": "@eibii/lily-ui",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "private": false,
   "description": "Biblioteca de componentes da daisyUI em Vue 3",
   "author": "ERC Dev <dev@eibii.com> (https://www.ercdev.com.br/)",
