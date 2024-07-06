@@ -24,7 +24,7 @@ const props = withDefaults(
     unstyledTitle: false
   }
 )
-const modalId = `modal_${_.uniqueId()}`
+const modalId = _.uniqueId('modal_$')
 const onClose = () => {
   emit('update:modelValue', false)
   const el: any = document.getElementById(modalId)
