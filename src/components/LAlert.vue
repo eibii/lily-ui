@@ -1,20 +1,25 @@
 <script setup lang="ts">
 import type { SeverityBase } from '../@types/Props'
 
-import { ref, onBeforeMount } from 'vue'
+import { ref, onBeforeMount, onMounted } from 'vue'
 
+const emit = defineEmits<{
+  (e: 'onClose'): void
+}>()
 const props = withDefaults(
   defineProps<{
     title?: string
     message?: string
     iconClass?: string
     severity?: SeverityBase
+    duration?: number
   }>(),
   {
     title: '',
     message: '',
     iconClass: '',
-    severity: 'default'
+    severity: 'default',
+    duration: undefined
   }
 )
 const defaultIconClass = ref('')
@@ -28,6 +33,13 @@ onBeforeMount(() => {
     defaultIconClass.value = 'bi bi-exclamation-triangle'
   } else if (props.severity === 'danger' && !props.iconClass) {
     defaultIconClass.value = 'bi bi-x-circle'
+  }
+})
+onMounted(() => {
+  if (props.duration) {
+    setTimeout(() => {
+      emit('onClose')
+    }, props.duration)
   }
 })
 </script>
