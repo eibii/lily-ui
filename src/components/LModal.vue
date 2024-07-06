@@ -59,12 +59,12 @@ onMounted(() => {
     :class="[
       'modal',
       {
-        'modal-bottom sm:modal-middle': props.responsive
+        'modal-bottom sm:modal-middle': $props.responsive
       }
     ]"
   >
-    <div :class="['modal-box', props.widthClass]">
-      <form v-if="props.closeButton" method="dialog">
+    <div :class="['modal-box', $props.widthClass]">
+      <form v-if="$props.closeButton" method="dialog">
         <LButton
           size="sm"
           shape="circle"
@@ -76,7 +76,7 @@ onMounted(() => {
           ✕
         </LButton>
       </form>
-      <h3 :class="{ 'font-bold text-lg': !props.unstyledTitle }">
+      <h3 :class="{ 'font-bold text-lg': !$props.unstyledTitle }">
         <slot name="title" />
       </h3>
       <slot />
@@ -86,7 +86,7 @@ onMounted(() => {
         </form>
       </div>
     </div>
-    <form v-if="props.closable" method="dialog" class="modal-backdrop">
+    <form v-if="$props.closable" method="dialog" class="modal-backdrop">
       <button @click="onClose" @keypress.enter="onClose">close</button>
     </form>
   </dialog>
