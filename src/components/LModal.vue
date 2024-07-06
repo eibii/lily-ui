@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { watch, onMounted } from 'vue'
+import * as _ from 'lodash-es'
 
 import { LButton } from '.'
 
@@ -13,7 +14,7 @@ const props = withDefaults(
     closeButton?: boolean
     responsive?: boolean
     widthClass?: string
-    unstyledTitle?: boolean 
+    unstyledTitle?: boolean
   }>(),
   {
     closable: true,
@@ -23,7 +24,7 @@ const props = withDefaults(
     unstyledTitle: false
   }
 )
-const modalId = self.crypto.randomUUID()
+const modalId = `modal_${_.uniqueId()}`
 const onClose = () => {
   emit('update:modelValue', false)
   const el: any = document.getElementById(modalId)
