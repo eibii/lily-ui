@@ -1,3 +1,10 @@
+# [1.2.0](https://github.com/eibii/lily-ui/compare/v1.1.0...v1.2.0) (2024-07-06)
+
+
+### Features
+
+* Adiciona duração personalizada para fechar automaticamente o LToast ([f764935](https://github.com/eibii/lily-ui/commit/f764935859011901a307c4c8d59dba17d7645385))
+
 # Changelog
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
