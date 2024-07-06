@@ -1,3 +1,10 @@
+# [1.6.0](https://github.com/eibii/lily-ui/compare/v1.5.0...v1.6.0) (2024-07-06)
+
+
+### Features
+
+* Remove unused v-bind directive in LButton.vue ([39c736a](https://github.com/eibii/lily-ui/commit/39c736a6a5eb513f986f5c229c844ad9d8a3f3a7))
+
 # Changelog
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
