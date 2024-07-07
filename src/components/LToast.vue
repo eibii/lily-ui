@@ -42,15 +42,15 @@ withDefaults(
       }
     ]"
   >
-    <tempate v-for="message in $props.messages" :key="message">
-      <LAlert
-        :iconClass="message.iconClass"
-        :title="message.title"
-        :message="message.message"
-        :severity="message.severity"
-        :duration="message.duration || 3000"
-        @onClose="$emit('onClose', message)"
-      />
-    </tempate>
+    <LAlert
+      v-for="(message, i) in $props.messages"
+      :key="i"
+      :iconClass="message.iconClass"
+      :title="message.title"
+      :message="message.message"
+      :severity="message.severity"
+      :duration="message.duration || 3000"
+      @onClose="$emit('onClose', message)"
+    />
   </div>
 </template>
