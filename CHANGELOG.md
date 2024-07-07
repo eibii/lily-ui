@@ -1,3 +1,10 @@
+# [1.7.0](https://github.com/eibii/lily-ui/compare/v1.6.0...v1.7.0) (2024-07-07)
+
+
+### Features
+
+* Update LButton.vue to conditionally render icon based on loading state ([149e3e9](https://github.com/eibii/lily-ui/commit/149e3e908cf4320330e6fc702341ed7c978b5cf3))
+
 # Changelog
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
