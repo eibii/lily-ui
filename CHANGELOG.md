@@ -2,6 +2,8 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.10](https://github.com/eibii/lily-ui/compare/v0.0.9...v0.0.10) (2024-07-07)
+
 ### [0.0.9](https://github.com/eibii/lily-ui/compare/v1.6.0...v0.0.9) (2024-07-06)
 
 # [1.6.0](https://github.com/eibii/lily-ui/compare/v1.5.0...v1.6.0) (2024-07-06)
