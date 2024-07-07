@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 
-import { LThemeMode, LJoin, LJoinItem } from './components'
+import { LThemeMode, LButton } from './components'
 
 import 'bootstrap-icons/font/bootstrap-icons.css'
 
@@ -17,17 +17,7 @@ const value = ref(false)
       </div>
     </div>
     <div class="flex-1">
-      <LJoin>
-        <LJoinItem>
-          <button class="btn join-item">Button</button>
-        </LJoinItem>
-        <LJoinItem>
-          <button class="btn join-item">Button</button>
-        </LJoinItem>
-        <LJoinItem>
-          <button class="btn join-item">Button</button>
-        </LJoinItem>
-      </LJoin>
+      <LButton loading label="Button" />
     </div>
   </div>
 </template>
